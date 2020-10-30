@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "566363553155",
+    "firebase_url": "https://smart-village-e330f.firebaseio.com",
+    "project_id": "smart-village-e330f",
+    "storage_bucket": "smart-village-e330f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566363553155:android:e326638e1c5fee96d98ab6",
+        "android_client_info": {
+          "package_name": "com.example.smart_village"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566363553155-5juuiais1i3s42nj62puu0kv3njid106.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smart_village",
+            "certificate_hash": "3fb6e2c51d169014a4e1e948a2593d4f844a5864"
+          }
+        },
+        {
+          "client_id": "566363553155-oi5jvc1qm5d5jla0n1lj77t4sj3n3qrk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8eDA1Q998zjwmL2-9km2L64rR2rCbCco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566363553155-oi5jvc1qm5d5jla0n1lj77t4sj3n3qrk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
