@@ -56,6 +56,7 @@ class _HomepageState extends State<Homepage> {
       ];
       locationProvider = Provider.of<LocationProvider>(context);
       _locationData = await locationProvider.getLocation();
+      await locationProvider.geocoder();
       print(_locationData.latitude);
 
       setState(() {

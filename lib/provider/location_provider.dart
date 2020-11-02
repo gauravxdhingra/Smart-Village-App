@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:location/location.dart';
 
 class LocationProvider with ChangeNotifier {
@@ -27,6 +28,13 @@ class LocationProvider with ChangeNotifier {
 
     _locationData = await location.getLocation();
     return _locationData;
+  }
+
+  geocoder() async {
+    final placemarks = await geocoding.placemarkFromCoordinates(
+        _locationData.latitude, _locationData.longitude);
+    geocoding.Placemark placemark = placemarks.first;
+    print(placemark.locality);
   }
 
   get locationDataGetter {
