@@ -1,6 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_village/provider/location_provider.dart';
 import 'package:smart_village/screens/agriculture/agriculture_home.dart';
 import 'package:smart_village/screens/courses/courses_home.dart';
 import 'package:smart_village/screens/jobs/jobs_home.dart';
@@ -14,36 +17,52 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  bool _loading = true;
+  bool _init = false;
+
+  LocationProvider locationProvider;
+
   List homeTabItems = [];
+  LocationData _locationData;
 
   @override
-  void didChangeDependencies() {
-    homeTabItems = [
-      {
-        "title": "Agriculture",
-        "imgUrl":
-            "https://cdn2.iconfinder.com/data/icons/food-solid-icons-volume-2/128/054-512.png",
-        "onPress": () {
-          Navigator.pushNamed(context, AgricultureHome.routeName);
+  void didChangeDependencies() async {
+    if (!_init) {
+      homeTabItems = [
+        {
+          "title": "Agriculture",
+          "imgUrl":
+              "https://cdn2.iconfinder.com/data/icons/food-solid-icons-volume-2/128/054-512.png",
+          "onPress": () {
+            Navigator.pushNamed(context, AgricultureHome.routeName);
+          },
         },
-      },
-      {
-        "title": "Jobs",
-        "imgUrl":
-            "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png",
-        "onPress": () {
-          Navigator.pushNamed(context, JobsHome.routeName);
+        {
+          "title": "Jobs",
+          "imgUrl":
+              "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png",
+          "onPress": () {
+            Navigator.pushNamed(context, JobsHome.routeName);
+          },
         },
-      },
-      {
-        "title": "Courses",
-        "imgUrl":
-            "https://i.pinimg.com/originals/ec/ff/cc/ecffccbdfb3381f5edf994d45913f737.png",
-        "onPress": () {
-          Navigator.pushNamed(context, CoursesHome.routeName);
+        {
+          "title": "Courses",
+          "imgUrl":
+              "https://i.pinimg.com/originals/ec/ff/cc/ecffccbdfb3381f5edf994d45913f737.png",
+          "onPress": () {
+            Navigator.pushNamed(context, CoursesHome.routeName);
+          },
         },
-      },
-    ];
+      ];
+      locationProvider = Provider.of<LocationProvider>(context);
+      _locationData = await locationProvider.getLocation();
+      print(_locationData.latitude);
+
+      setState(() {
+        _init = true;
+        _loading = false;
+      });
+    }
     super.didChangeDependencies();
   }
 
@@ -53,70 +72,51 @@ class _HomepageState extends State<Homepage> {
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
-            // title: Text(headline),
             // elevation: 0.1,
             expandedHeight: MediaQuery.of(context).size.height / 3,
-
             pinned: true,
-            // backgroundColor: Colors.white,
-            // leading: IconButton(
-            //   icon: Icon(
-            //     Icons.arrow_back_ios,
-            //     color: Colors.white,
-            //   ),
-            //   onPressed: () {
-            //     Navigator.pop(context);
-            //   },
-            // ),
+            backgroundColor: Themes.primaryColor,
             // floating: true,
-            title: Container(
-              height: 40,
-              width: double.infinity,
-              color: Theme.of(context).scaffoldBackgroundColor,
-            ),
+            leading: Icon(Icons.location_on_outlined),
+            title: Text("Mukherjee Nagar, Delhi"),
+
             flexibleSpace: FlexibleSpaceBar(
               titlePadding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               centerTitle: true,
-              collapseMode: CollapseMode.parallax,
+              collapseMode: CollapseMode.pin,
               // title: Container(
+              //   child: Row(
+              //     mainAxisSize: MainAxisSize.min,
+              //     children: [
+              //       Icon(Icons.location_city),
+              //       Text("Delhi"),
+              //     ],
+              //   ),
+              // ),
+              // background: Container(
+              //   height: 200,
               //   decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.circular(3),
-              //     color: Colors.black38,
-              //   ),
-              //   padding: EdgeInsets.symmetric(
-              //     vertical: 3,
-              //     horizontal: 6,
-              //   ),
-              //   child: Text(
-              //     "Atmanirbhar Gaon".toUpperCase(),
-              //     style: TextStyle(
-              //       fontSize: 15,
+              //     color: Theme.of(context).scaffoldBackgroundColor,
+              //     image: DecorationImage(
+              //       image: NetworkImage(
+              //         "https://i.pinimg.com/564x/39/03/fe/3903fe18c342c0a1ed83917e283d1314.jpg",
+              //       ),
+              //       fit: BoxFit.cover,
               //     ),
-              //     maxLines: 2,
-              //     overflow: TextOverflow.ellipsis,
-              //     softWrap: true,
-              //     textAlign: TextAlign.center,
+              //   ),
+              //   child: BackdropFilter(
+              //     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              //     child: Container(
+              //         decoration:
+              //             BoxDecoration(color: Colors.white.withOpacity(0.0))),
               //   ),
               // ),
               background: Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "https://i.pinimg.com/564x/39/03/fe/3903fe18c342c0a1ed83917e283d1314.jpg",
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                      decoration:
-                          BoxDecoration(color: Colors.white.withOpacity(0.0))),
-                ),
-              ),
+                  height: 200,
+                  width: double.infinity,
+                  color: Themes.primaryColor),
             ),
+            stretch: true,
           ),
           SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -131,7 +131,10 @@ class _HomepageState extends State<Homepage> {
                     onPress: homeTabItems[i]["onPress"],
                   );
                 }, childCount: 3)),
-          )
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 600, width: 100),
+          ),
         ],
       ),
     );

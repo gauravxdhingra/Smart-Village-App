@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_village/provider/location_provider.dart';
 
 import 'provider/jobs_provider.dart';
 import 'screens/agriculture/agriculture_home.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         // ChangeNotifierProvider.value(
         //   value: AuthProvider(),
         // ),
+        ChangeNotifierProvider.value(
+          value: LocationProvider(),
+        ),
         ChangeNotifierProvider.value(
           value: JobsProvider(),
         ),
