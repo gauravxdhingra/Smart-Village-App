@@ -23,7 +23,7 @@ class _AgricultureHomeState extends State<AgricultureHome> {
               delegate: SliverChildListDelegate([
             Container(
               child: Padding(
-                padding: const EdgeInsets.only(left: 15, top: 20),
+                padding: const EdgeInsets.only(left: 15, top: 15),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -34,9 +34,9 @@ class _AgricultureHomeState extends State<AgricultureHome> {
                           children: [
                             CircleAvatar(
                               child: Padding(
-                                padding: const EdgeInsets.all(2),
-                                child: Icon(Icons.add),
-                              ),
+                                  padding: const EdgeInsets.all(2),
+                                  child: Icon(Icons.add,
+                                      color: Colors.white, size: 35)),
                               radius: 30,
                               backgroundColor: Colors.blueGrey,
                             ),
@@ -47,27 +47,31 @@ class _AgricultureHomeState extends State<AgricultureHome> {
                       ),
                     ),
                     SizedBox(width: 15),
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Themes.primaryColor.withOpacity(0.1)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            // SizedBox(width: 10),
-                            AddedFarms(
-                              farmName: "Wheat Farm",
-                              farmImg:
-                                  "https://lh3.googleusercontent.com/proxy/vjM--YsZ3INzTcTm5fP_L-eQVJaZbnxZWPKWnT2CLrTZiUJX4WP4KPelA99KLsiiKsZw_CIMGkoAlZgP1ffyFsEeXGQv8Ho",
-                            ),
-                            AddedFarms(
-                              farmName: "Rice Farm",
-                              farmImg:
-                                  "https://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/1024/22333-sheaf-of-rice-icon.png",
-                            ),
-                          ],
+                    Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Themes.primaryColor.withOpacity(0.1)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              // SizedBox(width: 10),
+                              AddedFarms(
+                                farmName: "Wheat Farm",
+                                farmImg:
+                                    "https://lh3.googleusercontent.com/proxy/vjM--YsZ3INzTcTm5fP_L-eQVJaZbnxZWPKWnT2CLrTZiUJX4WP4KPelA99KLsiiKsZw_CIMGkoAlZgP1ffyFsEeXGQv8Ho",
+                              ),
+                              AddedFarms(
+                                farmName: "Rice Farm",
+                                farmImg:
+                                    "https://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/1024/22333-sheaf-of-rice-icon.png",
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -75,8 +79,18 @@ class _AgricultureHomeState extends State<AgricultureHome> {
                 ),
               ),
             ),
+            SizedBox(height: 10),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              width: MediaQuery.of(context).size.width,
+              child: Text(
+                "Adding all your farms and tracking them regularly helps you become a Smart Farmer",
+                softWrap: true,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+              ),
+            ),
             SizedBox(height: 20),
-            // Container(height: 170, width: 70, color: Colors.blue),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: Card(
@@ -86,13 +100,13 @@ class _AgricultureHomeState extends State<AgricultureHome> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: WeatherBg(
-                    weatherType: WeatherType.thunder,
-                    width: double.infinity,
+                    weatherType: WeatherType.middleRainy,
+                    width: MediaQuery.of(context).size.width,
                     height: 200,
                   ),
                 ),
               ),
-            )
+            ),
           ]))
         ],
       ),
