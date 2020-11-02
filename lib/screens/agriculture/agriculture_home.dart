@@ -100,7 +100,7 @@ class _AgricultureHomeState extends State<AgricultureHome> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: WeatherBg(
-                    weatherType: WeatherType.middleRainy,
+                    weatherType: WeatherType.lightSnow,
                     width: MediaQuery.of(context).size.width,
                     height: 200,
                   ),

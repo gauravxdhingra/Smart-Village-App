@@ -1,14 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_village/provider/jobs_provider.dart';
-import 'package:smart_village/screens/agriculture/agriculture_home.dart';
-import 'package:smart_village/screens/courses/courses_home.dart';
-import 'package:smart_village/screens/jobs/jobs_home.dart';
-import 'package:smart_village/theme/theme.dart';
 
+import 'provider/jobs_provider.dart';
+import 'screens/agriculture/agriculture_home.dart';
+import 'screens/courses/courses_home.dart';
+import 'screens/jobs/jobs_home.dart';
+import 'screens/jobs/search_jobs.dart';
 import 'screens/pageview/pageview.dart';
+import 'theme/theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -30,11 +34,13 @@ class MyApp extends StatelessWidget {
           primarySwatch: Themes.primaryColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
+        debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => PageViewHome(),
           AgricultureHome.routeName: (context) => AgricultureHome(),
           JobsHome.routeName: (context) => JobsHome(),
           CoursesHome.routeName: (context) => CoursesHome(),
+          SearchJobsPage.routeName: (context) => SearchJobsPage(),
         },
       ),
     );
