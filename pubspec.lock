@@ -57,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0-nullsafety.1"
+  ff_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: ff_navigation_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.5"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -67,6 +74,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_weather_bg:
+    dependency: "direct main"
+    description:
+      name: flutter_weather_bg
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.8.2"
   matcher:
     dependency: transitive
     description:
@@ -81,6 +95,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0-nullsafety.3"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   path:
     dependency: transitive
     description:
@@ -88,6 +109,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0-nullsafety.1"
+  provider:
+    dependency: "direct main"
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.3.2+2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -151,3 +179,4 @@ packages:
     version: "2.1.0-nullsafety.3"
 sdks:
   dart: ">=2.10.0-110 <2.11.0"
+  flutter: ">=1.20.0 <2.0.0"
