@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:location/location.dart';
+import 'package:weather/weather.dart';
 
 class LocationProvider with ChangeNotifier {
   Location location = new Location();
@@ -30,11 +31,20 @@ class LocationProvider with ChangeNotifier {
     return _locationData;
   }
 
-  geocoder() async {
+  Future<String> geocoder(LocationData _locationDataa) async {
     final placemarks = await geocoding.placemarkFromCoordinates(
-        _locationData.latitude, _locationData.longitude);
+        _locationDataa.latitude, _locationDataa.longitude);
     geocoding.Placemark placemark = placemarks.first;
-    print(placemark.locality);
+    print(placemark.subLocality + ", " + placemark.subAdministrativeArea);
+    return placemark.subLocality + ", " + placemark.subAdministrativeArea;
+  }
+
+  Future<Weather> getWeather(LocationData _locationDataa) async {
+    // 68cb03985d06f7afdf42838b85203879
+    WeatherFactory wf = new WeatherFactory("68cb03985d06f7afdf42838b85203879");
+    Weather w = await wf.currentWeatherByLocation(
+        _locationDataa.latitude, _locationDataa.longitude);
+    return w;
   }
 
   get locationDataGetter {

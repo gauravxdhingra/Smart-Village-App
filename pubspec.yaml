@@ -35,6 +35,7 @@ dependencies:
   location: ^3.0.2
   provider: ^4.3.2+2
   timeago: ^2.0.28
+  weather: ^1.2.3
 
 dev_dependencies:
   flutter_test:

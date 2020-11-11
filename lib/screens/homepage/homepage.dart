@@ -24,7 +24,7 @@ class _HomepageState extends State<Homepage> {
 
   List homeTabItems = [];
   LocationData _locationData;
-
+  String address = "";
   @override
   void didChangeDependencies() async {
     if (!_init) {
@@ -56,8 +56,7 @@ class _HomepageState extends State<Homepage> {
       ];
       locationProvider = Provider.of<LocationProvider>(context);
       _locationData = await locationProvider.getLocation();
-      await locationProvider.geocoder();
-      print(_locationData.latitude);
+      address = await locationProvider.geocoder(_locationData);
 
       setState(() {
         _init = true;
@@ -78,8 +77,12 @@ class _HomepageState extends State<Homepage> {
             pinned: true,
             backgroundColor: Themes.primaryColor,
             // floating: true,
-            leading: Icon(Icons.location_on_outlined),
-            title: Text("Mukherjee Nagar, Delhi"),
+            leading: InkWell(
+                onTap: () async {
+                  locationProvider.geocoder(_locationData);
+                },
+                child: Icon(Icons.location_on_outlined)),
+            title: Text(_loading ? "Get Location" : address),
 
             flexibleSpace: FlexibleSpaceBar(
               titlePadding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
@@ -94,28 +97,28 @@ class _HomepageState extends State<Homepage> {
               //     ],
               //   ),
               // ),
-              // background: Container(
-              //   height: 200,
-              //   decoration: BoxDecoration(
-              //     color: Theme.of(context).scaffoldBackgroundColor,
-              //     image: DecorationImage(
-              //       image: NetworkImage(
-              //         "https://i.pinimg.com/564x/39/03/fe/3903fe18c342c0a1ed83917e283d1314.jpg",
-              //       ),
-              //       fit: BoxFit.cover,
-              //     ),
-              //   ),
-              //   child: BackdropFilter(
-              //     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              //     child: Container(
-              //         decoration:
-              //             BoxDecoration(color: Colors.white.withOpacity(0.0))),
-              //   ),
-              // ),
               background: Container(
-                  height: 200,
-                  width: double.infinity,
-                  color: Themes.primaryColor),
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "https://i.pinimg.com/564x/39/03/fe/3903fe18c342c0a1ed83917e283d1314.jpg",
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                  child: Container(
+                      decoration:
+                          BoxDecoration(color: Colors.white.withOpacity(0.0))),
+                ),
+              ),
+              //   background: Container(
+              //       height: 200,
+              //       width: double.infinity,
+              //       color: Themes.primaryColor),
             ),
             stretch: true,
           ),
@@ -134,7 +137,7 @@ class _HomepageState extends State<Homepage> {
                 }, childCount: 3)),
           ),
           SliverToBoxAdapter(
-            child: SizedBox(height: 600, width: 100),
+            child: SizedBox(height: 400, width: 100),
           ),
         ],
       ),
