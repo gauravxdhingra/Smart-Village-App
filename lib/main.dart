@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/provider/location_provider.dart';
+import 'package:smart_village/screens/auth/enterNumber.dart';
+import 'package:smart_village/screens/jobs/post_a_job.dart';
 
 import 'provider/jobs_provider.dart';
 import 'screens/agriculture/agriculture_home.dart';
@@ -40,10 +42,13 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => PageViewHome(),
+          // '/': (context) => PageViewHome(),
+          '/': (context) => JobsHome(),
+          // '/': (context) => EnterNumberPage(),
           AgricultureHome.routeName: (context) => AgricultureHome(),
-          JobsHome.routeName: (context) => JobsHome(),
+          // JobsHome.routeName: (context) => JobsHome(),
           CoursesHome.routeName: (context) => CoursesHome(),
+          PostAJob.routeName: (context) => PostAJob(),
           SearchJobsPage.routeName: (context) => SearchJobsPage(),
         },
       ),
