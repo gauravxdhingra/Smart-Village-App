@@ -1,20 +1,19 @@
+import '../../provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_village/provider/auth_provider.dart';
-import 'otp_Screen.dart';
+import 'create_profile.dart';
 
-class EnterNumberPage extends StatefulWidget {
-  EnterNumberPage({Key key}) : super(key: key);
-  static const routeName = "enter_number_page";
+class OTPScreen extends StatefulWidget {
+  OTPScreen({Key key}) : super(key: key);
+  static const routeName = "otp_screen";
   @override
-  _EnterNumberPageState createState() => _EnterNumberPageState();
+  _OTPScreenState createState() => _OTPScreenState();
 }
 
-class _EnterNumberPageState extends State<EnterNumberPage> {
+class _OTPScreenState extends State<OTPScreen> {
   AuthProvider authProvider;
   bool init = false;
-
-  TextEditingController _numberController = TextEditingController();
+  TextEditingController _otpController = TextEditingController();
 
   @override
   void didChangeDependencies() {
@@ -37,31 +36,29 @@ class _EnterNumberPageState extends State<EnterNumberPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("Enter your 10 digit mobile number"),
+                  Text("Enter OTP"),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("+91 "),
-                      SizedBox(width: 10),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.56,
                         child: TextFormField(
-                          controller: _numberController,
+                          controller: _otpController,
                           keyboardType: TextInputType.number,
-                          maxLength: 10,
+                          maxLength: 6,
                           decoration: InputDecoration(
-                            hintText: "Number",
+                            hintText: "OTP",
                             counterText: "",
                           ),
                         ),
                       ),
                       RaisedButton(
                         onPressed: () async {
-                          authProvider.setPhone = (_numberController.text);
-                          await authProvider.verifyPhoneNumber(context);
-                          if (authProvider.getAuthStatus
-                              .contains("send"))
-                            Navigator.pushNamed(context, OTPScreen.routeName);
+                          authProvider.signIn(_otpController.text);
+                          print(authProvider.getAuthStatus);
+                          if (authProvider.getAuthStatus.contains("verified"))
+                            Navigator.pushNamed(
+                                context, CreateProfile.routeName);
                         },
                         child: Text("Go"),
                       ),

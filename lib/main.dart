@@ -1,17 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_village/provider/auth_provider.dart';
 import 'package:smart_village/provider/location_provider.dart';
 import 'package:smart_village/screens/auth/enterNumber.dart';
+import 'package:smart_village/screens/auth/otp_Screen.dart';
 import 'package:smart_village/screens/jobs/post_a_job.dart';
+import 'screens/auth/create_profile.dart';
 
 import 'provider/jobs_provider.dart';
+
 import 'screens/agriculture/agriculture_home.dart';
 import 'screens/courses/courses_home.dart';
 import 'screens/jobs/jobs_home.dart';
 import 'screens/jobs/search_jobs.dart';
 import 'screens/pageview/pageview.dart';
 import 'theme/theme.dart';
+import 'screens/jobs/view_job.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,9 +29,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // ChangeNotifierProvider.value(
-        //   value: AuthProvider(),
-        // ),
+        ChangeNotifierProvider.value(
+          value: AuthProvider(),
+        ),
         ChangeNotifierProvider.value(
           value: LocationProvider(),
         ),
@@ -43,13 +48,16 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           // '/': (context) => PageViewHome(),
-          '/': (context) => JobsHome(),
-          // '/': (context) => EnterNumberPage(),
+          // '/': (context) => JobsHome(),
+          '/': (context) => EnterNumberPage(),
           AgricultureHome.routeName: (context) => AgricultureHome(),
-          // JobsHome.routeName: (context) => JobsHome(),
+          JobsHome.routeName: (context) => JobsHome(),
           CoursesHome.routeName: (context) => CoursesHome(),
+          CreateProfile.routeName: (context) => CreateProfile(),
           PostAJob.routeName: (context) => PostAJob(),
+          OTPScreen.routeName: (context) => OTPScreen(),
           SearchJobsPage.routeName: (context) => SearchJobsPage(),
+          ViewJobScreen.routeName: (context) => ViewJobScreen(),
         },
       ),
     );

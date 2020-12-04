@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class Job {
   String title;
+  String hiringParty;
   String desc;
   String imgUrl;
-  Duration duration;
+  DateTime startDate;
+  DateTime endDate;
   double salary;
   String location;
   double lat;
@@ -12,12 +14,14 @@ class Job {
 
   Job({
     this.title,
+    this.hiringParty,
     this.desc,
     this.imgUrl,
-    this.duration,
+    this.startDate,
+    this.endDate,
     this.salary,
     this.location,
-    this.lat,
-    this.long,
+    this.lat = 0.0,
+    this.long = 0.0,
   });
 }

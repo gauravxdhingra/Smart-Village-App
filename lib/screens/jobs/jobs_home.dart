@@ -1,8 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/provider/jobs_provider.dart';
+import 'package:smart_village/provider/location_provider.dart';
 import 'package:smart_village/screens/jobs/post_a_job.dart';
 import 'package:smart_village/screens/jobs/search_jobs.dart';
 import 'package:smart_village/theme/theme.dart';
@@ -20,21 +22,38 @@ class _JobsHomeState extends State<JobsHome> {
   bool _init = false;
 
   JobsProvider jobsProvider;
+  LocationProvider locationProvider;
 
   List jobs = [];
+  LocationData _locationData;
+  String address = "";
 
   @override
   void didChangeDependencies() async {
     if (!_init) {
       jobsProvider = Provider.of<JobsProvider>(context);
+      locationProvider = Provider.of<LocationProvider>(context);
+      _locationData = await locationProvider.getLocation();
+      address = await locationProvider.geocoder(_locationData);
       jobs = await jobsProvider.getJobs();
+
       setState(() {
         _init = true;
         _loading = false;
       });
     }
-
     super.didChangeDependencies();
+  }
+
+  refreshJobs() async {
+    setState(() {
+      _loading = true;
+    });
+    jobs = await jobsProvider.getJobs();
+    setState(() {
+      _init = true;
+      _loading = false;
+    });
   }
 
   @override
@@ -53,10 +72,23 @@ class _JobsHomeState extends State<JobsHome> {
                     // floating: true,
                     leading: InkWell(
                         onTap: () async {
-                          // locationProvider.geocoder(_locationData);
+                          _locationData = await locationProvider.getLocation();
+                          address =
+                              await locationProvider.geocoder(_locationData);
+                          setState(() {});
                         },
                         child: Icon(Icons.location_on_outlined)),
-                    title: Text("Get Location"),
+                    title: InkWell(
+                      onTap: () async {
+                        _locationData = await locationProvider.getLocation();
+                        address =
+                            await locationProvider.geocoder(_locationData);
+                        setState(() {});
+                      },
+                      child: Text(address != null && address != ""
+                          ? address
+                          : "Get Location"),
+                    ),
 
                     flexibleSpace: FlexibleSpaceBar(
                       titlePadding:
@@ -107,8 +139,9 @@ class _JobsHomeState extends State<JobsHome> {
                               borderRadius: BorderRadius.circular(10)),
                           child: ListTile(
                             leading: Container(
-                              child: Image.network(
-                                  "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"),
+                              child: Image.network(jobs[i]["imgUrl"] == ""
+                                  ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
+                                  : jobs[i]["imgUrl"]),
                             ),
                             title: Text(
                               jobs[i]["title"],
@@ -117,16 +150,19 @@ class _JobsHomeState extends State<JobsHome> {
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(jobs[i]["postedBy"]),
+                                Text(jobs[i]["hiringParty"]),
                                 Text(jobs[i]["desc"]),
                                 Text(
-                                  timeago.format(jobs[i]["postedAt"].toDate()),
+                                  timeago.format(
+                                    DateTime.parse(jobs[i]["postedAt"]),
+                                    // jobs[i]["postedAt"].toDate()),
+                                  ),
                                   style: TextStyle(color: Colors.grey),
                                 )
                               ],
                             ),
                             trailing: Text(
-                              "\u20B9 ${jobs[i]["pay"]}",
+                              "\u20B9 ${jobs[i]["salary"]}",
                               style: TextStyle(
                                   color: Colors.blueGrey,
                                   fontSize: 16,
@@ -140,6 +176,12 @@ class _JobsHomeState extends State<JobsHome> {
                       ),
                     //   itemCount: jobs.length,
                     // ),
+                    RaisedButton(
+                      onPressed: () async {
+                        await refreshJobs();
+                      },
+                      child: Text("Refresh"),
+                    )
                   ])),
                   SliverToBoxAdapter(
                     child: SizedBox(height: 400, width: 100),
