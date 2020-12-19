@@ -2,11 +2,12 @@ import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_village/screens/dashboard/dashboard.dart';
 import 'package:smart_village/screens/homepage/homepage.dart';
+import 'package:smart_village/screens/notification_screen/notifications_screen.dart';
 import 'package:smart_village/screens/settings/settings_screen.dart';
 
 class PageViewHome extends StatefulWidget {
   PageViewHome({Key key}) : super(key: key);
-
+  static const routeName = "pageview_home";
   @override
   _PageViewHomeState createState() => _PageViewHomeState();
 }
@@ -26,6 +27,7 @@ class _PageViewHomeState extends State<PageViewHome> {
           children: [
             Homepage(),
             DashboardScreen(),
+            NotificationScreen(),
             SettingsScreen(),
           ],
         ),
@@ -52,6 +54,10 @@ class _PageViewHomeState extends State<PageViewHome> {
             FFNavigationBarItem(
               iconData: Icons.dashboard,
               label: 'Dashboard',
+            ),
+            FFNavigationBarItem(
+              iconData: Icons.notifications,
+              label: 'Notifications',
             ),
             FFNavigationBarItem(
               iconData: Icons.settings,

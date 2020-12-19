@@ -21,6 +21,8 @@ class _JobsHomeState extends State<JobsHome> {
   bool _loading = true;
   bool _init = false;
 
+  bool jobSeeker = true;
+
   JobsProvider jobsProvider;
   LocationProvider locationProvider;
 
@@ -65,66 +67,45 @@ class _JobsHomeState extends State<JobsHome> {
             : CustomScrollView(
                 slivers: [
                   SliverAppBar(
-                    // elevation: 0.1,
                     expandedHeight: MediaQuery.of(context).size.height / 3,
                     pinned: true,
                     backgroundColor: Themes.primaryColor,
-                    // floating: true,
-                    leading: InkWell(
-                        onTap: () async {
-                          _locationData = await locationProvider.getLocation();
-                          address =
-                              await locationProvider.geocoder(_locationData);
-                          setState(() {});
-                        },
-                        child: Icon(Icons.location_on_outlined)),
-                    title: InkWell(
-                      onTap: () async {
-                        _locationData = await locationProvider.getLocation();
-                        address =
-                            await locationProvider.geocoder(_locationData);
-                        setState(() {});
-                      },
-                      child: Text(address != null && address != ""
-                          ? address
-                          : "Get Location"),
-                    ),
-
+                    title: Text("Jobs"),
                     flexibleSpace: FlexibleSpaceBar(
-                      titlePadding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                      centerTitle: true,
-                      collapseMode: CollapseMode.pin,
-                      background: Container(
-                        height: 200,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://i.pinimg.com/564x/39/03/fe/3903fe18c342c0a1ed83917e283d1314.jpg",
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                          child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.0))),
-                        ),
-                      ),
-                    ),
+                        titlePadding:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        centerTitle: true,
+                        collapseMode: CollapseMode.pin,
+                        background: Container(
+                            height: 200,
+                            decoration: BoxDecoration(
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor),
+                            child: Container(
+                                decoration:
+                                    BoxDecoration(color: Colors.blueGrey)))),
                     actions: [
                       IconButton(
                           icon: Icon(Icons.search),
                           onPressed: _loading
                               ? null
-                              : () {
-                                  Navigator.pushNamed(
-                                      context, SearchJobsPage.routeName);
-                                })
+                              : () => Navigator.pushNamed(
+                                  context, SearchJobsPage.routeName))
                     ],
                     stretch: true,
+                  ),
+                  SliverToBoxAdapter(
+                    child: Container(
+                      height: 60,
+                      width: double.infinity,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          // TODO Add Chips Using Skills
+                          children: [],
+                        ),
+                      ),
+                    ),
                   ),
                   SliverList(
                       delegate: SliverChildListDelegate([
@@ -188,29 +169,42 @@ class _JobsHomeState extends State<JobsHome> {
                   ),
                 ],
               ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, PostAJob.routeName);
-          },
-          child: Icon(Icons.add),
-        ),
+        floatingActionButton: jobSeeker
+            ? FloatingActionButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (context) => Container(
+                            child: Column(children: [Text("Filter Jobs")]),
+                          ));
+                },
+                child: Icon(Icons.sort),
+              )
+            : FloatingActionButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PostAJob.routeName);
+                },
+                child: Icon(Icons.add),
+              ),
         bottomNavigationBar: Container(
           width: double.infinity,
           height: 50,
-          color: Colors.black.withOpacity(0.09),
+          color: Themes.primaryColor,
+          // Colors.black.withOpacity(0.09),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                children: [Icon(Icons.sort), Text("Sort By")],
-              ),
-              Row(
-                children: [
-                  Icon(Icons.filter),
-                  SizedBox(width: 5),
-                  Text("Filter By")
-                ],
-              )
+              Row(children: [
+                Icon(Icons.explore, color: Colors.white),
+                SizedBox(width: 5),
+                Text("Explore Jobs", style: TextStyle(color: Colors.white))
+              ]),
+              Container(width: 1, height: 30, color: Colors.white),
+              Row(children: [
+                Icon(Icons.check_box, color: Colors.white.withOpacity(0.7)),
+                SizedBox(width: 5),
+                Text("Applied Jobs", style: TextStyle(color: Colors.white))
+              ])
             ],
           ),
         ),

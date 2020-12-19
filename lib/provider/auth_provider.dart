@@ -52,7 +52,7 @@ class AuthProvider with ChangeNotifier {
       smsCode: otp,
     ));
     authStatus = ("Your account is successfully verified");
-    print("YELE : " + FirebaseAuth.instance.currentUser.uid);
+    print(FirebaseAuth.instance.currentUser.uid);
   }
 
   Future<void> logout() async {
@@ -63,41 +63,3 @@ class AuthProvider with ChangeNotifier {
     }
   }
 }
-
-// otpDialogBox(BuildContext context) {
-//   return showDialog(
-//       context: context,
-//       barrierDismissible: false,
-//       builder: (BuildContext context) {
-//         return new AlertDialog(
-//           title: Text('Enter your OTP'),
-//           content: Padding(
-//             padding: const EdgeInsets.all(8.0),
-//             child: TextFormField(
-//               decoration: InputDecoration(
-//                 border: new OutlineInputBorder(
-//                   borderRadius: const BorderRadius.all(
-//                     const Radius.circular(30),
-//                   ),
-//                 ),
-//               ),
-//               onChanged: (value) {
-//                 otp = value;
-//               },
-//             ),
-//           ),
-//           contentPadding: EdgeInsets.all(10.0),
-//           actions: <Widget>[
-//             FlatButton(
-//               onPressed: () {
-//                 Navigator.of(context).pop();
-//                 signIn(otp);
-//               },
-//               child: Text(
-//                 'Submit',
-//               ),
-//             ),
-//           ],
-//         );
-//       });
-// }

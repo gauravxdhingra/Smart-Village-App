@@ -62,7 +62,7 @@ class _SearchJobsPageState extends State<SearchJobsPage> {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(jobs[i]["postedBy"]),
+                  Text(jobs[i]["hiringParty"]),
                   Text(jobs[i]["desc"]),
                   Text(
                     timeago.format(jobs[i]["postedAt"].toDate()),
@@ -71,7 +71,7 @@ class _SearchJobsPageState extends State<SearchJobsPage> {
                 ],
               ),
               trailing: Text(
-                "\u20B9 ${jobs[i]["pay"]}",
+                "\u20B9 ${jobs[i]["salary"]}",
                 style: TextStyle(
                     color: Colors.blueGrey,
                     fontSize: 16,

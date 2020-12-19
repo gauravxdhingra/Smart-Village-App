@@ -14,6 +14,7 @@ import 'screens/agriculture/agriculture_home.dart';
 import 'screens/courses/courses_home.dart';
 import 'screens/jobs/jobs_home.dart';
 import 'screens/jobs/search_jobs.dart';
+import 'screens/notification_screen/notifications_screen.dart';
 import 'screens/pageview/pageview.dart';
 import 'theme/theme.dart';
 import 'screens/jobs/view_job.dart';
@@ -55,7 +56,9 @@ class MyApp extends StatelessWidget {
           CoursesHome.routeName: (context) => CoursesHome(),
           CreateProfile.routeName: (context) => CreateProfile(),
           PostAJob.routeName: (context) => PostAJob(),
+          NotificationScreen.routeName: (context) => NotificationScreen(),
           OTPScreen.routeName: (context) => OTPScreen(),
+          PageViewHome.routeName: (context) => PageViewHome(),
           SearchJobsPage.routeName: (context) => SearchJobsPage(),
           ViewJobScreen.routeName: (context) => ViewJobScreen(),
         },

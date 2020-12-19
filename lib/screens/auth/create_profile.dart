@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/provider/auth_provider.dart';
 import 'package:smart_village/screens/jobs/jobs_home.dart';
+import 'package:smart_village/screens/pageview/pageview.dart';
 
 class CreateProfile extends StatefulWidget {
   CreateProfile({Key key}) : super(key: key);
@@ -44,7 +45,9 @@ class _CreateProfileState extends State<CreateProfile> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, JobsHome.routeName);
+          // Navigator.pushNamed(context, JobsHome.routeName);
+
+          Navigator.pushNamed(context, PageViewHome.routeName);
         },
         child: Icon(Icons.arrow_forward_ios),
       ),
