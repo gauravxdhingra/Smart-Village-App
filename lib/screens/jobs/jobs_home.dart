@@ -30,6 +30,19 @@ class _JobsHomeState extends State<JobsHome> {
   LocationData _locationData;
   String address = "";
 
+  Map skillChipsData = {
+    "all": "All",
+    "agriculture": "Agriculture",
+    "animalhusbandry": "Animal Husbandry",
+    "construction": "Conruction",
+    "creative": "Creative",
+    "factory": "Factory",
+    "hospitality": "Hospitality",
+    "labour": "Labour",
+    "sewing": "Sewing",
+    "otherskilled": "Other Skilled",
+  };
+
   @override
   void didChangeDependencies() async {
     if (!_init) {
@@ -94,78 +107,84 @@ class _JobsHomeState extends State<JobsHome> {
                     ],
                     stretch: true,
                   ),
-                  SliverToBoxAdapter(
-                    child: Container(
-                      height: 60,
-                      width: double.infinity,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          // TODO Add Chips Using Skills
-                          children: [],
-                        ),
-                      ),
-                    ),
-                  ),
                   SliverList(
-                      delegate: SliverChildListDelegate([
-                    // ListView.builder(
-                    //   itemBuilder: (context, i) =>
-                    for (int i = 0; i < jobs.length; i++)
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 10, top: 10, right: 10),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: ListTile(
-                            leading: Container(
-                              child: Image.network(jobs[i]["imgUrl"] == ""
-                                  ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
-                                  : jobs[i]["imgUrl"]),
+                    delegate: SliverChildListDelegate([
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            height: 60,
+                            width: double.infinity,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                // TODO Add Chips Using Skills
+                                children: [
+                                  SizedBox(width: 10),
+                                  for (int i = 0;
+                                      i < skillChipsData.length;
+                                      i++)
+                                    skillChips(skillChipsData.keys.elementAt(i),
+                                        skillChipsData.values.elementAt(i)),
+                                ],
+                              ),
                             ),
-                            title: Text(
-                              jobs[i]["title"],
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(jobs[i]["hiringParty"]),
-                                Text(jobs[i]["desc"]),
-                                Text(
-                                  timeago.format(
-                                    DateTime.parse(jobs[i]["postedAt"]),
-                                    // jobs[i]["postedAt"].toDate()),
-                                  ),
-                                  style: TextStyle(color: Colors.grey),
-                                )
-                              ],
-                            ),
-                            trailing: Text(
-                              "\u20B9 ${jobs[i]["salary"]}",
-                              style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            isThreeLine: true,
                           ),
-                        ),
+                          for (int i = 0; i < jobs.length; i++)
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 10, right: 10),
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ListTile(
+                                  leading: Container(
+                                    child: Image.network(jobs[i]["imgUrl"] == ""
+                                        ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
+                                        : jobs[i]["imgUrl"]),
+                                  ),
+                                  title: Text(
+                                    jobs[i]["title"],
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(jobs[i]["hiringParty"]),
+                                      Text(jobs[i]["desc"]),
+                                      Text(
+                                        timeago.format(
+                                          DateTime.parse(jobs[i]["postedAt"]),
+                                          // jobs[i]["postedAt"].toDate()),
+                                        ),
+                                        style: TextStyle(color: Colors.grey),
+                                      )
+                                    ],
+                                  ),
+                                  trailing: Text(
+                                    "\u20B9 ${jobs[i]["salary"]}",
+                                    style: TextStyle(
+                                        color: Colors.blueGrey,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  contentPadding: EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 5),
+                                  isThreeLine: true,
+                                ),
+                              ),
+                            ),
+                          RaisedButton(
+                              onPressed: () async {
+                                await refreshJobs();
+                              },
+                              child: Text("Refresh")),
+                          Container(height: 400, width: 100)
+                        ],
                       ),
-                    //   itemCount: jobs.length,
-                    // ),
-                    RaisedButton(
-                      onPressed: () async {
-                        await refreshJobs();
-                      },
-                      child: Text("Refresh"),
-                    )
-                  ])),
-                  SliverToBoxAdapter(
-                    child: SizedBox(height: 400, width: 100),
+                    ]),
                   ),
                 ],
               ),
@@ -211,4 +230,18 @@ class _JobsHomeState extends State<JobsHome> {
       ),
     );
   }
+
+  Padding skillChips(skill, label) => Padding(
+        padding: const EdgeInsets.only(right: 15),
+        child: GestureDetector(
+          onTap: () {},
+          child: Container(
+            decoration: BoxDecoration(
+                color: Themes.primaryColor,
+                borderRadius: BorderRadius.circular(20)),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Text(label, style: TextStyle(color: Colors.white)),
+          ),
+        ),
+      );
 }
