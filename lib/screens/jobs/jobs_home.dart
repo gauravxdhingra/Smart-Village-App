@@ -7,6 +7,7 @@ import 'package:smart_village/provider/jobs_provider.dart';
 import 'package:smart_village/provider/location_provider.dart';
 import 'package:smart_village/screens/jobs/post_a_job.dart';
 import 'package:smart_village/screens/jobs/search_jobs.dart';
+import 'package:smart_village/screens/jobs/view_job.dart';
 import 'package:smart_village/theme/theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -32,13 +33,17 @@ class _JobsHomeState extends State<JobsHome> {
 
   Map skillChipsData = {
     "all": "All",
+    "skilled": "Skilled",
+    "unskilled": "Unskilled",
     "agriculture": "Agriculture",
     "animalhusbandry": "Animal Husbandry",
+    "clerical": "Clerical",
     "construction": "Conruction",
     "creative": "Creative",
     "factory": "Factory",
     "hospitality": "Hospitality",
     "labour": "Labour",
+    "sales": "Sales",
     "sewing": "Sewing",
     "otherskilled": "Other Skilled",
   };
@@ -82,21 +87,14 @@ class _JobsHomeState extends State<JobsHome> {
                   SliverAppBar(
                     expandedHeight: MediaQuery.of(context).size.height / 3,
                     pinned: true,
-                    backgroundColor: Themes.primaryColor,
+                    backgroundColor: Colors.blueGrey,
                     title: Text("Jobs"),
                     flexibleSpace: FlexibleSpaceBar(
                         titlePadding:
                             EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                         centerTitle: true,
                         collapseMode: CollapseMode.pin,
-                        background: Container(
-                            height: 200,
-                            decoration: BoxDecoration(
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor),
-                            child: Container(
-                                decoration:
-                                    BoxDecoration(color: Colors.blueGrey)))),
+                        background: Container(height: 200, child: Container())),
                     actions: [
                       IconButton(
                           icon: Icon(Icons.search),
@@ -138,6 +136,10 @@ class _JobsHomeState extends State<JobsHome> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
                                 child: ListTile(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, ViewJobScreen.routeName);
+                                  },
                                   leading: Container(
                                     child: Image.network(jobs[i]["imgUrl"] == ""
                                         ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
@@ -197,33 +199,27 @@ class _JobsHomeState extends State<JobsHome> {
                             child: Column(children: [Text("Filter Jobs")]),
                           ));
                 },
-                child: Icon(Icons.sort),
-              )
+                child: Icon(Icons.sort))
             : FloatingActionButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, PostAJob.routeName);
-                },
-                child: Icon(Icons.add),
-              ),
+                onPressed: () =>
+                    Navigator.pushNamed(context, PostAJob.routeName),
+                child: Icon(Icons.add)),
         bottomNavigationBar: Container(
           width: double.infinity,
           height: 50,
           color: Themes.primaryColor,
-          // Colors.black.withOpacity(0.09),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(children: [
-                Icon(Icons.explore, color: Colors.white),
-                SizedBox(width: 5),
-                Text("Explore Jobs", style: TextStyle(color: Colors.white))
-              ]),
-              Container(width: 1, height: 30, color: Colors.white),
-              Row(children: [
-                Icon(Icons.check_box, color: Colors.white.withOpacity(0.7)),
-                SizedBox(width: 5),
-                Text("Applied Jobs", style: TextStyle(color: Colors.white))
-              ])
+              SizedBox(width: 5),
+              Icon(Icons.explore, color: Colors.white),
+              Text("Explore Jobs", style: TextStyle(color: Colors.white)),
+              SizedBox(width: 5),
+              Container(width: 0.7, height: 30, color: Colors.white),
+              SizedBox(width: 5),
+              Icon(Icons.check_box, color: Colors.white.withOpacity(0.7)),
+              Text("Applied Jobs", style: TextStyle(color: Colors.white)),
+              SizedBox(width: 5),
             ],
           ),
         ),

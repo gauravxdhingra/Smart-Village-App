@@ -10,9 +10,14 @@ class JobsProvider with ChangeNotifier {
 
   Future<List> getJobs() async {
     final temp = await databaseReference.collection('jobs').get();
-    print(temp.docs.map((e) => e.data()).toList());
     jobs = temp.docs.map((e) => e.data()).toList();
-    return temp.docs.map((e) => e.data()).toList();
+    int i = 0;
+    temp.docs.forEach((element) {
+      jobs[i]["id"] = element.id;
+      i++;
+    });
+    print(jobs);
+    return jobs;
   }
 
   submitJob(Job job) async {
