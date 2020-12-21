@@ -67,15 +67,12 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                         EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                     centerTitle: true,
                     collapseMode: CollapseMode.parallax,
-                    background: Hero(
-                      tag: "job",
-                      child: Container(
-                          height: 200,
-                          child: Container(
-                            child: CachedNetworkImage(
-                                imageUrl: job.imgUrl, fit: BoxFit.cover),
-                          )),
-                    )),
+                    background: Container(
+                        height: 200,
+                        child: Container(
+                          child: CachedNetworkImage(
+                              imageUrl: job.imgUrl, fit: BoxFit.cover),
+                        ))),
                 stretch: true,
               ),
               SliverList(

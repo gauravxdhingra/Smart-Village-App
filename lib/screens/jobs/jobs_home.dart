@@ -33,6 +33,9 @@ class _JobsHomeState extends State<JobsHome> {
   LocationData _locationData;
   String address = "";
 
+  List<Job> filterJobs = [];
+  String selectedTag = "all";
+
   Map skillChipsData = {
     "all": "All",
     "skilled": "Skilled",
@@ -64,17 +67,6 @@ class _JobsHomeState extends State<JobsHome> {
       });
     }
     super.didChangeDependencies();
-  }
-
-  refreshJobs() async {
-    setState(() {
-      _loading = true;
-    });
-    jobs = await jobsProvider.getJobs();
-    setState(() {
-      _init = true;
-      _loading = false;
-    });
   }
 
   @override
@@ -130,69 +122,12 @@ class _JobsHomeState extends State<JobsHome> {
                               ),
                             ),
                           ),
-                          for (int i = 0; i < jobs.length; i++)
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 10, top: 10, right: 10),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ListTile(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                        context, ViewJobScreen.routeName,
-                                        arguments: {
-                                          "jobid": jobs[i].jobID,
-                                          "job": jobs[i]
-                                        });
-                                  },
-                                  leading: Hero(
-                                    tag: "job",
-                                    child: Container(
-                                      child: jobs[i].imgUrl != null
-                                          ? CachedNetworkImage(
-                                              imageUrl: jobs[i].imgUrl == ""
-                                                  ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
-                                                  : jobs[i].imgUrl,
-                                              fit: BoxFit.cover)
-                                          : CircleAvatar(),
-                                    ),
-                                  ),
-                                  title: Text(
-                                    jobs[i].title ?? "Title",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(jobs[i].hiringParty ?? "Company"),
-                                      Text(jobs[i].desc ?? "Job Description"),
-                                      Text(
-                                        timeago.format(
-                                            DateTime.parse(jobs[i].postedAt)),
-                                        style: TextStyle(color: Colors.grey),
-                                      )
-                                    ],
-                                  ),
-                                  trailing: Text(
-                                      "\u20B9 ${jobs[i].salary ?? "0"}",
-                                      style: TextStyle(
-                                          color: Colors.blueGrey,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold)),
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 5),
-                                  isThreeLine: true,
-                                ),
-                              ),
-                            ),
-                          RaisedButton(
-                              onPressed: () async {
-                                await refreshJobs();
-                              },
-                              child: Text("Refresh")),
+                          if (filterJobs.isEmpty)
+                            for (int i = 0; i < jobs.length; i++)
+                              jobsListBuilder(context, i, jobs)
+                          else
+                            for (int i = 0; i < filterJobs.length; i++)
+                              jobsListBuilder(context, i, filterJobs),
                           Container(height: 400, width: 100)
                         ],
                       ),
@@ -202,6 +137,7 @@ class _JobsHomeState extends State<JobsHome> {
               ),
         floatingActionButton: jobSeeker
             ? FloatingActionButton(
+                heroTag: null,
                 onPressed: () {
                   showModalBottomSheet(
                       context: context,
@@ -211,6 +147,7 @@ class _JobsHomeState extends State<JobsHome> {
                 },
                 child: Icon(Icons.sort))
             : FloatingActionButton(
+                heroTag: null,
                 onPressed: () =>
                     Navigator.pushNamed(context, PostAJob.routeName),
                 child: Icon(Icons.add)),
@@ -237,10 +174,77 @@ class _JobsHomeState extends State<JobsHome> {
     );
   }
 
+  Padding jobsListBuilder(BuildContext context, int i, List<Job> jobsList) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, ViewJobScreen.routeName,
+                arguments: {"jobid": jobsList[i].jobID, "job": jobsList[i]});
+          },
+          leading: Container(
+            child: jobsList[i].imgUrl != null
+                ? CachedNetworkImage(
+                    imageUrl: jobsList[i].imgUrl == ""
+                        ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
+                        : jobsList[i].imgUrl,
+                    fit: BoxFit.cover)
+                : CircleAvatar(),
+          ),
+          title: Text(
+            jobsList[i].title ?? "Title",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(jobsList[i].hiringParty ?? "Company"),
+              Text(jobsList[i].desc ?? "Job Description"),
+              Text(timeago.format(DateTime.parse(jobsList[i].postedAt)),
+                  style: TextStyle(color: Colors.grey))
+            ],
+          ),
+          trailing: Text("\u20B9 ${jobsList[i].salary ?? "0"}",
+              style: TextStyle(
+                  color: Colors.blueGrey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold)),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          isThreeLine: true,
+        ),
+      ),
+    );
+  }
+
   Padding skillChips(skill, label) => Padding(
         padding: const EdgeInsets.only(right: 15),
-        child: GestureDetector(
-          onTap: () {},
+        child: InkWell(
+          onTap: () {
+            filterJobs = [];
+            String tag = skillChipsData.keys.firstWhere(
+                (k) => skillChipsData[k] == label,
+                orElse: () => null);
+            selectedTag = tag ?? "all";
+            print("1 " + jobs.length.toString());
+            print("1 " + jobs.length.toString());
+
+            if (tag != "all") {
+              print(tag);
+              filterJobs = [];
+              jobs.forEach((ele) {
+                if (ele.jobTags != null) if (ele.jobTags.contains(tag)) {
+                  filterJobs.add(ele);
+                }
+              });
+              print(filterJobs.length);
+            } else {
+              filterJobs = jobs;
+            }
+
+            setState(() {});
+          },
           child: Container(
             decoration: BoxDecoration(
                 color: Themes.primaryColor,

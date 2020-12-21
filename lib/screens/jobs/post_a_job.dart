@@ -11,6 +11,8 @@ import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:place_picker/place_picker.dart';
 
+import '../../apikey.dart';
+
 class PostAJob extends StatefulWidget {
   PostAJob({Key key}) : super(key: key);
   static const routeName = "post_a_job";
@@ -75,6 +77,7 @@ class _PostAJobState extends State<PostAJob> {
                     leading: Icon(Icons.camera),
                     title: Text("Camera"),
                     onTap: () async {
+                      Navigator.pop(context);
                       getImage("cam");
                     },
                   ),
@@ -82,6 +85,7 @@ class _PostAJobState extends State<PostAJob> {
                     leading: Icon(Icons.photo),
                     title: Text("Gallery"),
                     onTap: () async {
+                      Navigator.pop(context);
                       getImage("gal");
                     },
                   ),
@@ -183,6 +187,7 @@ class _PostAJobState extends State<PostAJob> {
   double lat = 0.0;
   double long = 0.0;
   String specialNotes = "";
+  TextEditingController addressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -246,7 +251,7 @@ class _PostAJobState extends State<PostAJob> {
                       inputType: TextInputType.multiline,
                       onChange: (val) {
                         jobPosting.desc = val;
-                        print(jobPosting.hiringParty);
+                        print(jobPosting.desc);
                       }),
                   SizedBox(height: 10),
                   // TODO Choice
@@ -408,42 +413,58 @@ class _PostAJobState extends State<PostAJob> {
                       labelText: "Job Address",
                       onChange: (val) {
                         jobPosting.location = val;
-                        print(jobPosting);
+                        print(jobPosting.location);
                       },
                       maxLines: 3,
-                      inputType: TextInputType.multiline),
+                      inputType: TextInputType.multiline,
+                      controller: addressController),
                   SizedBox(height: 10),
                   InkWell(
-                    onTap: () async {
-                      Future<LatLng> showPlacePicker() async {
-                        LocationResult result =
-                            await Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => PlacePicker(
-                                      "AIzaSyBM9uZBKgsJFXXxxxXTWO-VXH8cZWqqefg",
-                                      // displayLocation: customLocation,
-                                    )));
+                      onTap: () async {
+                        Future<LatLng> showPlacePicker() async {
+                          LocationResult result = await Navigator.of(context)
+                              .push(MaterialPageRoute(
+                                  builder: (context) => PlacePicker(
+                                        ApiKey.mapsApiKey,
+                                        // displayLocation: customLocation,
+                                      )));
+                          jobAddress = result.formattedAddress;
+                          print(result.formattedAddress);
+                          return result.latLng;
+                        }
 
-                        // Handle the result in your way
+                        LatLng coords = await showPlacePicker();
 
-                        print("*******************************************");
-                        print(result.latLng.latitude);
-                        print("*******************************************");
-                        return result.latLng;
-                      }
-
-                      LatLng coords = await showPlacePicker();
-                      jobPosting.lat = coords.latitude;
-                      jobPosting.long = coords.longitude;
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Themes.primaryColor),
-                      height: 50,
-                      width: double.infinity,
-                      child: Center(child: Text("Chose on map")),
+                        jobPosting.lat = coords.latitude;
+                        jobPosting.long = coords.longitude;
+                        setState(() {});
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Themes.primaryColor),
+                        height: 50,
+                        width: double.infinity,
+                        child: Center(child: Text("Select Location on Map")),
+                      )),
+                  SizedBox(height: 10),
+                  if (jobAddress != "")
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            child: Text(jobAddress)),
+                        FlatButton(
+                          child: Text("Replace Address"),
+                          onPressed: () {
+                            addressController.text = jobAddress;
+                            jobAddress = "";
+                            setState(() {});
+                          },
+                        ),
+                      ],
                     ),
-                  ),
                   SizedBox(height: 20),
                   buildTextFormField(
                       labelText: "Special Notes",
@@ -476,12 +497,14 @@ class _PostAJobState extends State<PostAJob> {
       {String labelText,
       Function onChange,
       TextInputType inputType,
-      int maxLines = 1}) {
+      int maxLines = 1,
+      controller}) {
     return Container(
       decoration: BoxDecoration(
           color: Themes.primaryColor.withOpacity(0.08),
           borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
+          controller: controller ?? null,
           decoration: InputDecoration(
               labelText: labelText,
               contentPadding: EdgeInsets.all(15.0),
