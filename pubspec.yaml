@@ -23,8 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  chips_choice: ^2.0.1
   cloud_firestore: ^0.14.2
   cupertino_icons: ^1.0.0
+  day_night_time_picker: ^0.4.0
   ff_navigation_bar: ^0.1.5
   firebase: ^7.3.2
   firebase_auth: ^0.18.2

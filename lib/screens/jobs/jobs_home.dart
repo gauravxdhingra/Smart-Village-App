@@ -22,7 +22,7 @@ class _JobsHomeState extends State<JobsHome> {
   bool _loading = true;
   bool _init = false;
 
-  bool jobSeeker = true;
+  bool jobSeeker = false;
 
   JobsProvider jobsProvider;
   LocationProvider locationProvider;
@@ -138,15 +138,18 @@ class _JobsHomeState extends State<JobsHome> {
                                 child: ListTile(
                                   onTap: () {
                                     Navigator.pushNamed(
-                                        context, ViewJobScreen.routeName);
+                                        context, ViewJobScreen.routeName,
+                                        arguments: {"jobid": jobs[i]["id"]});
                                   },
                                   leading: Container(
-                                    child: Image.network(jobs[i]["imgUrl"] == ""
-                                        ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
-                                        : jobs[i]["imgUrl"]),
+                                    child: jobs[i]["imgUrl"] != null
+                                        ? Image.network(jobs[i]["imgUrl"] == ""
+                                            ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
+                                            : jobs[i]["imgUrl"])
+                                        : CircleAvatar(),
                                   ),
                                   title: Text(
-                                    jobs[i]["title"],
+                                    jobs[i]["title"] ?? "Title",
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
@@ -154,8 +157,9 @@ class _JobsHomeState extends State<JobsHome> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(jobs[i]["hiringParty"]),
-                                      Text(jobs[i]["desc"]),
+                                      Text(jobs[i]["hiringParty"] ?? "Company"),
+                                      Text(
+                                          jobs[i]["desc"] ?? "Job Description"),
                                       Text(
                                         timeago.format(
                                           DateTime.parse(jobs[i]["postedAt"]),
@@ -166,7 +170,7 @@ class _JobsHomeState extends State<JobsHome> {
                                     ],
                                   ),
                                   trailing: Text(
-                                    "\u20B9 ${jobs[i]["salary"]}",
+                                    "\u20B9 ${jobs[i]["salary"] ?? "0"}",
                                     style: TextStyle(
                                         color: Colors.blueGrey,
                                         fontSize: 16,
