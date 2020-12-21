@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hive/hive.dart';
+import '../models/user.dart' as user;
+import '../models/employer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthProvider with ChangeNotifier {
   String phoneNumber = "", verificationId = "";
   String otp = "", authStatus = "";
+  final databaseReference = FirebaseFirestore.instance;
 
   Box<String> appdata;
 
@@ -17,9 +21,12 @@ class AuthProvider with ChangeNotifier {
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: "+91" + phoneNumber,
       timeout: const Duration(seconds: 60),
-      verificationCompleted: (AuthCredential authCredential) {
+      verificationCompleted: (AuthCredential authCredential) async {
         authStatus = ("Your account is successfully verified");
         print(authStatus);
+        await handleHive();
+        appdata.put("phoneNumber", phoneNumber);
+        print(appdata.get("phoneNumber"));
         notifyListeners();
       },
       verificationFailed: (
@@ -55,16 +62,57 @@ class AuthProvider with ChangeNotifier {
       smsCode: otp,
     ));
 
-    if (Hive.isBoxOpen("appdata"))
-      appdata = Hive.box<String>("appdata");
-    else {
-      await Hive.openBox("appdata");
-      appdata = Hive.box<String>("appdata");
-    }
-
+    await handleHive();
     authStatus = ("Your account is successfully verified");
     print(FirebaseAuth.instance.currentUser.uid);
     appdata.put("firebaseToken", FirebaseAuth.instance.currentUser.uid);
+  }
+
+  userSignup(user.User user, context) async {
+    await handleHive();
+    if (appdata.get("firebaseToken") != null)
+      await databaseReference
+          .collection('users')
+          .doc(appdata.get("firebaseToken"))
+          .set({
+        "name": user.name,
+        "gender": user.gender,
+        "dob": user.dob.toIso8601String(),
+        "imgUrl": user.imgUrl ??
+            "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png",
+        "education": user.education,
+        "villageTown": user.villageTown,
+        "state": user.state,
+        "address": user.address,
+        "mobile": appdata.get("phoneNumber"),
+        "skills": user.skills,
+        "languages": user.languages,
+        "firebaseId": appdata.get("firebaseToken"),
+      });
+    return;
+  }
+
+  employerSignup(Employer employer, context) async {
+    await handleHive();
+    if (appdata.get("firebaseToken") != null)
+      await databaseReference
+          .collection('users')
+          .doc(appdata.get("firebaseToken"))
+          .set({
+        "companyName": employer.companyName,
+        "address": employer.address,
+        "lat": employer.lat,
+        "long": employer.long,
+        "govt": employer.govt,
+        "companyContact": employer.companyContact,
+        "personalNumber": employer.personalNumber,
+        "state": employer.state,
+        "imgUrl": employer.imgUrl ??
+            "https://static.thenounproject.com/png/88781-200.png",
+        "mobile": appdata.get("phoneNumber"),
+        "firebaseId": appdata.get("firebaseToken"),
+      });
+    return;
   }
 
   Future<void> logout() async {
@@ -72,6 +120,15 @@ class AuthProvider with ChangeNotifier {
       await FirebaseAuth.instance.signOut();
     } catch (e) {
       print(e.toString());
+    }
+  }
+
+  handleHive() async {
+    if (Hive.isBoxOpen("appdata"))
+      appdata = Hive.box<String>("appdata");
+    else {
+      await Hive.openBox("appdata");
+      appdata = Hive.box<String>("appdata");
     }
   }
 }

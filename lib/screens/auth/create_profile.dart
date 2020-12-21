@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:smart_village/provider/auth_provider.dart';
 import 'package:smart_village/screens/jobs/jobs_home.dart';
 import 'package:smart_village/screens/pageview/pageview.dart';
+import '../auth/user_signup.dart';
+import '../auth/employer_signup.dart';
 
 class CreateProfile extends StatefulWidget {
   CreateProfile({Key key}) : super(key: key);
@@ -15,7 +17,7 @@ class _CreateProfileState extends State<CreateProfile> {
   AuthProvider authProvider;
   bool init = false;
 
-  TextEditingController _numberController = TextEditingController();
+  // TextEditingController _numberController = TextEditingController();
 
   @override
   void didChangeDependencies() {
@@ -30,27 +32,40 @@ class _CreateProfileState extends State<CreateProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("About You"),
+        title: Text("Welcome"),
         automaticallyImplyLeading: false,
       ),
-      body: SingleChildScrollView(
-        child: Form(
-            child: Column(
-          children: [
-            Text("Skills Form to be updated through firebase"),
-            Text("Skip For Now"),
-            Text("Your Firebase Token" + authProvider.firebaseToken),
-          ],
-        )),
+      body: Stack(
+        children: [
+          Align(
+              alignment: Alignment.center,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, UserSignup.routeName);
+                },
+                child: Container(
+                  child: Text("Get Started"),
+                ),
+              )),
+          Align(
+              alignment: Alignment.bottomCenter,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, EmployerSignup.routeName);
+                },
+                child: Container(
+                  child: Text("Register as an employer"),
+                ),
+              )),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Navigator.pushNamed(context, JobsHome.routeName);
-
-          Navigator.pushNamed(context, PageViewHome.routeName);
-        },
-        child: Icon(Icons.arrow_forward_ios),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     // Navigator.pushNamed(context, JobsHome.routeName);
+      //     Navigator.pushNamed(context, PageViewHome.routeName);
+      //   },
+      //   child: Icon(Icons.arrow_forward_ios),
+      // ),
     );
   }
 }

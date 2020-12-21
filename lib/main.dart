@@ -8,6 +8,8 @@ import 'package:smart_village/screens/auth/enterNumber.dart';
 import 'package:smart_village/screens/auth/otp_Screen.dart';
 import 'package:smart_village/screens/jobs/post_a_job.dart';
 import 'screens/auth/create_profile.dart';
+import 'screens/auth/employer_signup.dart';
+import 'screens/auth/user_signup.dart';
 
 import 'provider/jobs_provider.dart';
 
@@ -55,17 +57,19 @@ class MyApp extends StatelessWidget {
         routes: {
           // '/': (context) => PageViewHome(),
           // '/': (context) => JobsHome(),
-          // '/': (context) => EnterNumberPage(),
-          '/': (context) => SplashScreen(),
+          '/': (context) => EmployerSignup(),
+          // '/': (context) => SplashScreen(),
           AgricultureHome.routeName: (context) => AgricultureHome(),
           JobsHome.routeName: (context) => JobsHome(),
           CoursesHome.routeName: (context) => CoursesHome(),
           CreateProfile.routeName: (context) => CreateProfile(),
+          EmployerSignup.routeName: (context) => EmployerSignup(),
           PostAJob.routeName: (context) => PostAJob(),
           NotificationScreen.routeName: (context) => NotificationScreen(),
           OTPScreen.routeName: (context) => OTPScreen(),
           PageViewHome.routeName: (context) => PageViewHome(),
           SearchJobsPage.routeName: (context) => SearchJobsPage(),
+          UserSignup.routeName: (context) => UserSignup(),
           ViewJobScreen.routeName: (context) => ViewJobScreen(),
         },
       ),

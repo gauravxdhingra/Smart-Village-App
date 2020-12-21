@@ -9,9 +9,11 @@ class User {
   String villageTown;
   String state;
   String address;
-  int mobile;
+  String mobile;
   List skills;
-  List languages;
+  String languages;
+  double lat;
+  double long;
   String firebaseId;
 
   User({
@@ -26,6 +28,8 @@ class User {
     this.mobile,
     this.skills,
     this.languages,
+    this.lat,
+    this.long,
     this.firebaseId,
   });
 }

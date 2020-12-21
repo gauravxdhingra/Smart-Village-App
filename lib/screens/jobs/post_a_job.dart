@@ -319,6 +319,8 @@ class _PostAJobState extends State<PostAJob> {
                             showDialog(
                                 context: context,
                                 child: SfDateRangePicker(
+                                  headerStyle: DateRangePickerHeaderStyle(
+                                      textAlign: TextAlign.center),
                                   onSelectionChanged: (args) {
                                     PickerDateRange range = args.value;
                                     print(range.startDate.toString() +
@@ -326,7 +328,15 @@ class _PostAJobState extends State<PostAJob> {
                                         range.endDate.toString());
                                     jobPosting.startDate = range.startDate;
                                     jobPosting.endDate = range.endDate;
+                                    Navigator.pop(context);
                                   },
+                                  // TODO TESTING
+                                  initialSelectedDates: [
+                                    jobPosting.startDate,
+                                    jobPosting.endDate
+                                  ],
+                                  showNavigationArrow: true,
+                                  allowViewNavigation: true,
                                   backgroundColor: Colors.white,
                                   selectionMode:
                                       DateRangePickerSelectionMode.range,
@@ -349,21 +359,15 @@ class _PostAJobState extends State<PostAJob> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            showPicker(
-                              context: context,
-                              value: startTime,
-                              onChange: (pickedTime) {
-                                setState(() {
-                                  print(pickedTime);
-                                  jobPosting.startTime = pickedTime;
-                                  startTime = pickedTime;
-                                });
-                              },
-                            ),
-                          );
-                        },
+                        onTap: () => Navigator.of(context).push(showPicker(
+                          context: context,
+                          value: startTime,
+                          onChange: (pickedTime) => setState(() {
+                            print(pickedTime);
+                            jobPosting.startTime = pickedTime;
+                            startTime = pickedTime;
+                          }),
+                        )),
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
@@ -374,21 +378,14 @@ class _PostAJobState extends State<PostAJob> {
                         ),
                       ),
                       InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            showPicker(
-                              context: context,
-                              value: endTime,
-                              onChange: (pickedTime) {
-                                setState(() {
+                        onTap: () => Navigator.of(context).push(showPicker(
+                            context: context,
+                            value: endTime,
+                            onChange: (pickedTime) => setState(() {
                                   print(pickedTime);
                                   jobPosting.endTime = pickedTime;
                                   endTime = pickedTime;
-                                });
-                              },
-                            ),
-                          );
-                        },
+                                }))),
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
