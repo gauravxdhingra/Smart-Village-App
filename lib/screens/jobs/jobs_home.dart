@@ -83,6 +83,7 @@ class _JobsHomeState extends State<JobsHome> {
         body: _loading
             ? Container(child: Center(child: CircularProgressIndicator()))
             : CustomScrollView(
+                physics: BouncingScrollPhysics(),
                 slivers: [
                   SliverAppBar(
                     expandedHeight: MediaQuery.of(context).size.height / 3,

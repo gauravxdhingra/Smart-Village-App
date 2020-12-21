@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/models/job.dart';
@@ -6,6 +8,7 @@ import 'package:smart_village/theme/theme.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:chips_choice/chips_choice.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
+import 'package:image_picker/image_picker.dart';
 
 class PostAJob extends StatefulWidget {
   PostAJob({Key key}) : super(key: key);
@@ -40,6 +43,75 @@ class _PostAJobState extends State<PostAJob> {
     });
     super.didChangeDependencies();
   }
+
+  // TODO IMAGE UPLOAD
+
+  File _image;
+  final picker = ImagePicker();
+
+  Future getImage(String src) async {
+    final pickedFile = await picker.getImage(
+        source: src == "cam" ? ImageSource.camera : ImageSource.gallery);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
+  choseImageSrc() {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text("Pick Image Source"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.camera),
+                    title: Text("Camera"),
+                    onTap: () async {
+                      getImage("cam");
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.photo),
+                    title: Text("Gallery"),
+                    onTap: () async {
+                      getImage("gal");
+                    },
+                  ),
+                ],
+              ),
+              actions: [
+                FlatButton(
+                  child: Text("Cancel"),
+                  onPressed: () => Navigator.pop(context),
+                )
+              ],
+            ));
+  }
+
+  // Future<void> retrieveLostData() async {
+  //   final LostData response = await picker.getLostData();
+  //   if (response.isEmpty) {
+  //     return;
+  //   }
+  //   if (response.file != null) {
+  //     setState(() {
+  //       if (response.type == RetrieveType.video) {
+  //         _handleVideo(response.file);
+  //       } else {
+  //         _handleImage(response.file);
+  //       }
+  //     });
+  //   } else {
+  //     _handleError(response.exception);
+  //   }
+  // }
 
   dropdownButton() {
     return DropdownButton<String>(
@@ -119,13 +191,14 @@ class _PostAJobState extends State<PostAJob> {
           title: Text("Post A Job"),
         ),
         body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Form(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: Column(
                 children: [
-                  Text("Post a job"),
-                  SizedBox(height: 10),
+                  // Text("Post a job"),
+                  SizedBox(height: 15),
                   buildTextFormField(
                       labelText: "Job Title",
                       onChange: (val) {
@@ -140,17 +213,35 @@ class _PostAJobState extends State<PostAJob> {
                         print(jobPosting.hiringParty);
                       }),
                   SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Themes.primaryColor),
-                    height: 100,
-                    width: double.infinity,
-                    child: Center(child: Text("Add an image")),
+                  InkWell(
+                    onTap: () async {
+                      await choseImageSrc();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Themes.primaryColor),
+                      height: 100,
+                      width: double.infinity,
+                      child: Center(child: Text("Add an image")),
+                    ),
                   ),
                   SizedBox(height: 10),
+                  _image == null
+                      ? Text('No image selected.')
+                      : Image.file(_image),
+                  if (_image != null)
+                    FlatButton(
+                      child: Text("Remove"),
+                      onPressed: () {
+                        _image = null;
+                        setState(() {});
+                      },
+                    ),
+                  SizedBox(height: 20),
                   buildTextFormField(
                       labelText: "Job Description",
+                      maxLines: 5,
                       onChange: (val) {
                         jobPosting.desc = val;
                         print(jobPosting.hiringParty);
@@ -317,6 +408,7 @@ class _PostAJobState extends State<PostAJob> {
                         jobPosting.location = val;
                         print(jobPosting);
                       },
+                      maxLines: 3,
                       inputType: TextInputType.multiline),
                   SizedBox(height: 10),
                   Container(
@@ -334,6 +426,7 @@ class _PostAJobState extends State<PostAJob> {
                         jobPosting.specialNotes = val;
                         print(jobPosting.specialNotes);
                       },
+                      maxLines: 2,
                       inputType: TextInputType.multiline),
                   SizedBox(height: 150),
                 ],
@@ -354,20 +447,23 @@ class _PostAJobState extends State<PostAJob> {
     );
   }
 
-  TextFormField buildTextFormField(
-      {String labelText, Function onChange, TextInputType inputType}) {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: labelText,
-        contentPadding: EdgeInsets.all(15.0),
-        border: InputBorder.none,
-        filled: true,
-        fillColor: Colors.grey[200],
-      ),
-      onChanged: (val) {
-        onChange(val);
-      },
-      keyboardType: inputType ?? TextInputType.text,
+  Container buildTextFormField(
+      {String labelText,
+      Function onChange,
+      TextInputType inputType,
+      int maxLines = 1}) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Themes.primaryColor.withOpacity(0.08),
+          borderRadius: BorderRadius.circular(10)),
+      child: TextFormField(
+          decoration: InputDecoration(
+              labelText: labelText,
+              contentPadding: EdgeInsets.all(15.0),
+              border: InputBorder.none),
+          onChanged: (val) => onChange(val),
+          maxLines: maxLines,
+          keyboardType: inputType ?? TextInputType.text),
     );
   }
 }
