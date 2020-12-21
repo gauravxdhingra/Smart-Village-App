@@ -6,17 +6,53 @@ import 'package:smart_village/models/job.dart';
 class JobsProvider with ChangeNotifier {
   final databaseReference = FirebaseFirestore.instance;
 
-  List jobs = [];
+  List<Job> jobs = [];
 
   Future<List> getJobs() async {
     final temp = await databaseReference.collection('jobs').get();
-    jobs = temp.docs.map((e) => e.data()).toList();
+    List jobsList = [];
+    jobsList = temp.docs.map((e) => e.data()).toList();
     int i = 0;
     temp.docs.forEach((element) {
-      jobs[i]["id"] = element.id;
+      jobsList[i]["id"] = element.id;
       i++;
     });
-    // print(jobs);
+    jobs = [];
+    jobsList.forEach((ele) {
+      jobs.add(Job(
+        jobID: ele["jobID"],
+        title: ele["title"],
+        desc: ele["desc"],
+        location: ele["location"],
+        endDate: ele["endDate"] != null && ele["endDate"] != ""
+            ? DateTime.parse(ele["endDate"])
+            : null,
+        endTime: TimeOfDay(
+            minute: int.parse(
+                ele["endTime"].toString().split(":")[1].split(" ")[0]),
+            hour: ele["endTime"].toString().split(" ")[1] == "PM"
+                ? 12 + int.parse(ele["endTime"].toString().split(":")[0])
+                : int.parse(ele["endTime"].toString().split(":")[0])),
+        hiringParty: ele["hiringParty"],
+        imgUrl: ele["imgUrl"],
+        jobTags: ele["jobTags"],
+        jobTypeIndex: ele["jobtypeIndex"],
+        lat: ele["lat"],
+        long: ele["long"],
+        postedAt: ele["postedAt"],
+        salary: double.parse(ele["salary"].toString()),
+        specialNotes: ele["specialNotes"],
+        startDate: ele["startDate"] != null && ele["startDate"] != ""
+            ? DateTime.parse(ele["startDate"])
+            : null,
+        startTime: TimeOfDay(
+            minute: int.parse(
+                ele["startTime"].toString().split(":")[1].split(" ")[0]),
+            hour: ele["startTime"].toString().split(" ")[1] == "PM"
+                ? 12 + int.parse(ele["startTime"].toString().split(":")[0])
+                : int.parse(ele["startTime"].toString().split(":")[0])),
+      ));
+    });
     return jobs;
   }
 
@@ -51,7 +87,7 @@ class JobsProvider with ChangeNotifier {
     return;
   }
 
-  List get jobsListGetter {
+  List<Job> get jobsListGetter {
     return jobs;
   }
 }

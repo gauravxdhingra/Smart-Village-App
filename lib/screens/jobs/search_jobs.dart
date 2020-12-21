@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -52,9 +53,9 @@ class _SearchJobsPageState extends State<SearchJobsPage> {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: ListTile(
               leading: Container(
-                child: Image.network(
-                    "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"),
-              ),
+                  child: CachedNetworkImage(
+                      imageUrl:
+                          "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png")),
               title: Text(
                 jobs[i]["title"],
                 style: TextStyle(fontWeight: FontWeight.bold),

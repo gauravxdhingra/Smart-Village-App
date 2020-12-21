@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cached_network_image: ^2.4.1
   chips_choice: ^2.0.1
   cloud_firestore: ^0.14.2
   cupertino_icons: ^1.0.0
@@ -37,8 +38,11 @@ dependencies:
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
   image_picker: ^0.6.7+17
-  location: ^3.0.2
+  location: ^2.3.5
+  #  ^3.0.2
+  maps_launcher: ^1.2.2+2
   path_provider: ^1.6.24
+  place_picker: ^0.9.17
   provider: ^4.3.2+2
   syncfusion_flutter_datepicker: ^18.3.51-beta
   timeago: ^2.0.28

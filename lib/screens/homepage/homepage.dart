@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:provider/provider.dart';
@@ -102,9 +103,8 @@ class _HomepageState extends State<Homepage> {
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   image: DecorationImage(
-                    image: NetworkImage(
-                      "https://i.pinimg.com/564x/39/03/fe/3903fe18c342c0a1ed83917e283d1314.jpg",
-                    ),
+                    image: CachedNetworkImageProvider(
+                        "https://i.pinimg.com/564x/39/03/fe/3903fe18c342c0a1ed83917e283d1314.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -166,8 +166,10 @@ class HomeTabs extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.network(imgUrl,
-                  fit: BoxFit.contain, color: Colors.blueGrey),
+              CachedNetworkImage(
+                  imageUrl: imgUrl,
+                  fit: BoxFit.contain,
+                  color: Colors.blueGrey),
               Text(title),
               Text("")
             ],

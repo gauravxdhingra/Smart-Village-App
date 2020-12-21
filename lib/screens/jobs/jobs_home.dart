@@ -1,8 +1,10 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_village/models/job.dart';
 import 'package:smart_village/provider/jobs_provider.dart';
 import 'package:smart_village/provider/location_provider.dart';
 import 'package:smart_village/screens/jobs/post_a_job.dart';
@@ -27,7 +29,7 @@ class _JobsHomeState extends State<JobsHome> {
   JobsProvider jobsProvider;
   LocationProvider locationProvider;
 
-  List jobs = [];
+  List<Job> jobs = [];
   LocationData _locationData;
   String address = "";
 
@@ -56,7 +58,6 @@ class _JobsHomeState extends State<JobsHome> {
       _locationData = await locationProvider.getLocation();
       address = await locationProvider.geocoder(_locationData);
       jobs = await jobsProvider.getJobs();
-
       setState(() {
         _init = true;
         _loading = false;
@@ -140,17 +141,25 @@ class _JobsHomeState extends State<JobsHome> {
                                   onTap: () {
                                     Navigator.pushNamed(
                                         context, ViewJobScreen.routeName,
-                                        arguments: {"jobid": jobs[i]["id"]});
+                                        arguments: {
+                                          "jobid": jobs[i].jobID,
+                                          "job": jobs[i]
+                                        });
                                   },
-                                  leading: Container(
-                                    child: jobs[i]["imgUrl"] != null
-                                        ? Image.network(jobs[i]["imgUrl"] == ""
-                                            ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
-                                            : jobs[i]["imgUrl"])
-                                        : CircleAvatar(),
+                                  leading: Hero(
+                                    tag: "job",
+                                    child: Container(
+                                      child: jobs[i].imgUrl != null
+                                          ? CachedNetworkImage(
+                                              imageUrl: jobs[i].imgUrl == ""
+                                                  ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
+                                                  : jobs[i].imgUrl,
+                                              fit: BoxFit.cover)
+                                          : CircleAvatar(),
+                                    ),
                                   ),
                                   title: Text(
-                                    jobs[i]["title"] ?? "Title",
+                                    jobs[i].title ?? "Title",
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
@@ -158,25 +167,21 @@ class _JobsHomeState extends State<JobsHome> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(jobs[i]["hiringParty"] ?? "Company"),
-                                      Text(
-                                          jobs[i]["desc"] ?? "Job Description"),
+                                      Text(jobs[i].hiringParty ?? "Company"),
+                                      Text(jobs[i].desc ?? "Job Description"),
                                       Text(
                                         timeago.format(
-                                          DateTime.parse(jobs[i]["postedAt"]),
-                                          // jobs[i]["postedAt"].toDate()),
-                                        ),
+                                            DateTime.parse(jobs[i].postedAt)),
                                         style: TextStyle(color: Colors.grey),
                                       )
                                     ],
                                   ),
                                   trailing: Text(
-                                    "\u20B9 ${jobs[i]["salary"] ?? "0"}",
-                                    style: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                      "\u20B9 ${jobs[i].salary ?? "0"}",
+                                      style: TextStyle(
+                                          color: Colors.blueGrey,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold)),
                                   contentPadding: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
                                   isThreeLine: true,

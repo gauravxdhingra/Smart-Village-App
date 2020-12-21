@@ -17,21 +17,26 @@ class Job {
   int jobTypeIndex;
   List jobTags;
   String specialNotes;
+  String jobID;
+  String postedAt;
 
-  Job(
-      {this.title="",
-      this.hiringParty = "",
-      this.desc = "",
-      this.imgUrl = "",
-      this.startDate,
-      this.endDate,
-      this.salary = 0.0,
-      this.location = "",
-      this.lat = 0.0,
-      this.long = 0.0,
-      this.startTime,
-      this.endTime,
-      this.jobTypeIndex = 0,
-      this.jobTags,
-      this.specialNotes});
+  Job({
+    this.title = "",
+    this.hiringParty = "",
+    this.desc = "",
+    this.imgUrl = "",
+    this.startDate,
+    this.endDate,
+    this.salary = 0.0,
+    this.location = "",
+    this.lat = 0.0,
+    this.long = 0.0,
+    this.startTime,
+    this.endTime,
+    this.jobTypeIndex = 0,
+    this.jobTags,
+    this.specialNotes,
+    this.jobID = "",
+    this.postedAt = "",
+  });
 }

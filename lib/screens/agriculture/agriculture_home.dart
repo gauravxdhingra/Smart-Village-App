@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_bg/bg/weather_bg.dart';
 import 'package:flutter_weather_bg/flutter_weather_bg.dart';
@@ -217,8 +218,10 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 children: [
-                  Image.network(
-                      "http://openweathermap.org/img/wn/${weather.weatherIcon}.png"),
+                  CachedNetworkImage(
+                      imageUrl:
+                          "http://openweathermap.org/img/wn/${weather.weatherIcon}.png",
+                      fit: BoxFit.cover),
                   Text(
                     weather.temperature.celsius.toString() + " °C",
                     style: TextStyle(
@@ -285,9 +288,9 @@ class AddedFarms extends StatelessWidget {
           children: [
             CircleAvatar(
               child: Padding(
-                padding: const EdgeInsets.all(2),
-                child: Image.network(farmImg, color: Colors.white),
-              ),
+                  padding: const EdgeInsets.all(2),
+                  child: CachedNetworkImage(
+                      imageUrl: farmImg, color: Colors.white)),
               radius: 30,
               backgroundColor: Colors.blueGrey,
             ),

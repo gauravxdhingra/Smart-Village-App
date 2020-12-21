@@ -9,6 +9,7 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:chips_choice/chips_choice.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:place_picker/place_picker.dart';
 
 class PostAJob extends StatefulWidget {
   PostAJob({Key key}) : super(key: key);
@@ -242,6 +243,7 @@ class _PostAJobState extends State<PostAJob> {
                   buildTextFormField(
                       labelText: "Job Description",
                       maxLines: 5,
+                      inputType: TextInputType.multiline,
                       onChange: (val) {
                         jobPosting.desc = val;
                         print(jobPosting.hiringParty);
@@ -267,7 +269,7 @@ class _PostAJobState extends State<PostAJob> {
                   buildTextFormField(
                     labelText: "Salary",
                     onChange: (val) {
-                      jobPosting.salary = val;
+                      jobPosting.salary = double.parse(val);
                       print(jobPosting.salary);
                     },
                     inputType: TextInputType.numberWithOptions(),
@@ -411,15 +413,38 @@ class _PostAJobState extends State<PostAJob> {
                       maxLines: 3,
                       inputType: TextInputType.multiline),
                   SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Themes.primaryColor),
-                    height: 50,
-                    width: double.infinity,
-                    child: Center(child: Text("Chose on map")),
+                  InkWell(
+                    onTap: () async {
+                      Future<LatLng> showPlacePicker() async {
+                        LocationResult result =
+                            await Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => PlacePicker(
+                                      "AIzaSyBM9uZBKgsJFXXxxxXTWO-VXH8cZWqqefg",
+                                      // displayLocation: customLocation,
+                                    )));
+
+                        // Handle the result in your way
+
+                        print("*******************************************");
+                        print(result.latLng.latitude);
+                        print("*******************************************");
+                        return result.latLng;
+                      }
+
+                      LatLng coords = await showPlacePicker();
+                      jobPosting.lat = coords.latitude;
+                      jobPosting.long = coords.longitude;
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Themes.primaryColor),
+                      height: 50,
+                      width: double.infinity,
+                      child: Center(child: Text("Chose on map")),
+                    ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   buildTextFormField(
                       labelText: "Special Notes",
                       onChange: (val) {
