@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hive/hive.dart';
 
 class AuthProvider with ChangeNotifier {
   String phoneNumber = "", verificationId = "";
   String otp = "", authStatus = "";
+
+  Box<String> appdata;
 
   set setPhone(phone) => this.phoneNumber = phone;
   String get getAuthStatus => authStatus;
@@ -51,8 +54,17 @@ class AuthProvider with ChangeNotifier {
       verificationId: verificationId,
       smsCode: otp,
     ));
+
+    if (Hive.isBoxOpen("appdata"))
+      appdata = Hive.box<String>("appdata");
+    else {
+      await Hive.openBox("appdata");
+      appdata = Hive.box<String>("appdata");
+    }
+
     authStatus = ("Your account is successfully verified");
     print(FirebaseAuth.instance.currentUser.uid);
+    appdata.put("firebaseToken", FirebaseAuth.instance.currentUser.uid);
   }
 
   Future<void> logout() async {

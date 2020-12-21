@@ -17,6 +17,7 @@ import 'screens/jobs/jobs_home.dart';
 import 'screens/jobs/search_jobs.dart';
 import 'screens/notification_screen/notifications_screen.dart';
 import 'screens/pageview/pageview.dart';
+import 'screens/splash_screen/splash_screen.dart';
 import 'theme/theme.dart';
 import 'screens/jobs/view_job.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -25,7 +26,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await Hive.initFlutter();
-  Hive.openBox<String>('appdata');
+  await Hive.openBox<String>('appdata');
   runApp(MyApp());
 }
 
@@ -54,7 +55,8 @@ class MyApp extends StatelessWidget {
         routes: {
           // '/': (context) => PageViewHome(),
           // '/': (context) => JobsHome(),
-          '/': (context) => EnterNumberPage(),
+          // '/': (context) => EnterNumberPage(),
+          '/': (context) => SplashScreen(),
           AgricultureHome.routeName: (context) => AgricultureHome(),
           JobsHome.routeName: (context) => JobsHome(),
           CoursesHome.routeName: (context) => CoursesHome(),
