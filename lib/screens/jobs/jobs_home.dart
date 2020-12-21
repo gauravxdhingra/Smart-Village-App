@@ -12,6 +12,7 @@ import 'package:smart_village/screens/jobs/search_jobs.dart';
 import 'package:smart_village/screens/jobs/view_job.dart';
 import 'package:smart_village/theme/theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:hive/hive.dart';
 
 class JobsHome extends StatefulWidget {
   JobsHome({Key key}) : super(key: key);
@@ -24,7 +25,7 @@ class _JobsHomeState extends State<JobsHome> {
   bool _loading = true;
   bool _init = false;
 
-  bool jobSeeker = false;
+  bool jobSeeker = true;
 
   JobsProvider jobsProvider;
   LocationProvider locationProvider;
@@ -53,6 +54,8 @@ class _JobsHomeState extends State<JobsHome> {
     "otherskilled": "Other Skilled",
   };
 
+  Box<String> appdata;
+
   @override
   void didChangeDependencies() async {
     if (!_init) {
@@ -61,6 +64,15 @@ class _JobsHomeState extends State<JobsHome> {
       _locationData = await locationProvider.getLocation();
       address = await locationProvider.geocoder(_locationData);
       jobs = await jobsProvider.getJobs();
+      if (Hive.isBoxOpen("appdata"))
+        appdata = Hive.box<String>("appdata");
+      else {
+        await Hive.openBox("appdata");
+        appdata = Hive.box<String>("appdata");
+      }
+      if (appdata.get("userType") == "user") jobSeeker = true;
+      if (appdata.get("userType") == "employer") jobSeeker = false;
+
       setState(() {
         _init = true;
         _loading = false;
@@ -165,7 +177,10 @@ class _JobsHomeState extends State<JobsHome> {
               Container(width: 0.7, height: 30, color: Colors.white),
               SizedBox(width: 5),
               Icon(Icons.check_box, color: Colors.white.withOpacity(0.7)),
-              Text("Applied Jobs", style: TextStyle(color: Colors.white)),
+              jobSeeker
+                  ? Text("Applied Jobs", style: TextStyle(color: Colors.white))
+                  : Text("Published Jobs",
+                      style: TextStyle(color: Colors.white)),
               SizedBox(width: 5),
             ],
           ),

@@ -57,8 +57,8 @@ class MyApp extends StatelessWidget {
         routes: {
           // '/': (context) => PageViewHome(),
           // '/': (context) => JobsHome(),
-          '/': (context) => EmployerSignup(),
-          // '/': (context) => SplashScreen(),
+          // '/': (context) => EmployerSignup(),
+          '/': (context) => SplashScreen(),
           AgricultureHome.routeName: (context) => AgricultureHome(),
           JobsHome.routeName: (context) => JobsHome(),
           CoursesHome.routeName: (context) => CoursesHome(),

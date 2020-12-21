@@ -89,6 +89,7 @@ class AuthProvider with ChangeNotifier {
         "languages": user.languages,
         "firebaseId": appdata.get("firebaseToken"),
       });
+    await appdata.put("userType", "user");
     return;
   }
 
@@ -112,6 +113,7 @@ class AuthProvider with ChangeNotifier {
         "mobile": appdata.get("phoneNumber"),
         "firebaseId": appdata.get("firebaseToken"),
       });
+    await appdata.put("userType", "employer");
     return;
   }
 
