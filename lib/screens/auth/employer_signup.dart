@@ -207,6 +207,7 @@ class _EmployerSignupState extends State<EmployerSignup> {
                     width: double.infinity,
                     child: Center(child: Text("Select Location on Map")),
                   )),
+              SizedBox(height: 20),
               if (locationAddress != "")
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

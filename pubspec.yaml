@@ -44,6 +44,7 @@ dependencies:
   location: ^2.3.5
   maps_launcher: ^1.2.2+2
   path_provider: ^1.6.24
+  pin_code_fields: ^6.0.1
   place_picker: ^0.9.17
   provider: ^4.3.2+2
   syncfusion_flutter_datepicker: ^18.3.51-beta
