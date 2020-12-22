@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hive/hive.dart';
-import '../models/user.dart' as user;
-import '../models/employer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+
+import '../models/employer.dart';
+import '../models/user.dart' as user;
 
 class AuthProvider with ChangeNotifier {
   String phoneNumber = "", verificationId = "";

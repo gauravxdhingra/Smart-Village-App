@@ -1,28 +1,27 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_village/provider/auth_provider.dart';
-import 'package:smart_village/provider/location_provider.dart';
-import 'package:smart_village/screens/auth/enterNumber.dart';
-import 'package:smart_village/screens/auth/otp_Screen.dart';
-import 'package:smart_village/screens/jobs/post_a_job.dart';
+
+import 'provider/auth_provider.dart';
+import 'provider/jobs_provider.dart';
+import 'provider/location_provider.dart';
+import 'screens/agriculture/agriculture_home.dart';
 import 'screens/auth/create_profile.dart';
 import 'screens/auth/employer_signup.dart';
+import 'screens/auth/enterNumber.dart';
+import 'screens/auth/otp_Screen.dart';
 import 'screens/auth/user_signup.dart';
-
-import 'provider/jobs_provider.dart';
-
-import 'screens/agriculture/agriculture_home.dart';
 import 'screens/courses/courses_home.dart';
 import 'screens/jobs/jobs_home.dart';
+import 'screens/jobs/post_a_job.dart';
 import 'screens/jobs/search_jobs.dart';
+import 'screens/jobs/view_job.dart';
 import 'screens/notification_screen/notifications_screen.dart';
 import 'screens/pageview/pageview.dart';
 import 'screens/splash_screen/splash_screen.dart';
 import 'theme/theme.dart';
-import 'screens/jobs/view_job.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,6 +63,7 @@ class MyApp extends StatelessWidget {
           CoursesHome.routeName: (context) => CoursesHome(),
           CreateProfile.routeName: (context) => CreateProfile(),
           EmployerSignup.routeName: (context) => EmployerSignup(),
+          EnterNumberPage.routeName: (context) => EnterNumberPage(),
           PostAJob.routeName: (context) => PostAJob(),
           NotificationScreen.routeName: (context) => NotificationScreen(),
           OTPScreen.routeName: (context) => OTPScreen(),
