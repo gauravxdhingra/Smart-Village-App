@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart' as geocoding;
+import 'package:hive/hive.dart';
 import 'package:location/location.dart';
 import 'package:weather/weather.dart';
 
 class LocationProvider with ChangeNotifier {
   Location location = new Location();
   LocationData _locationData;
+  Box<String> appdata;
 
   Future<LocationData> getLocation() async {
     bool _serviceEnabled;
@@ -28,6 +30,17 @@ class LocationProvider with ChangeNotifier {
     }
 
     _locationData = await location.getLocation();
+
+    if (Hive.isBoxOpen("appdata"))
+      appdata = Hive.box<String>("appdata");
+    else {
+      await Hive.openBox("appdata");
+      appdata = Hive.box<String>("appdata");
+    }
+
+    appdata.put("lat", _locationData.latitude.toString());
+    appdata.put("long", _locationData.longitude.toString());
+
     return _locationData;
   }
 

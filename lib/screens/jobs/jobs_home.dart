@@ -13,6 +13,7 @@ import 'package:smart_village/screens/jobs/view_job.dart';
 import 'package:smart_village/theme/theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:hive/hive.dart';
+import 'package:geolocator/geolocator.dart';
 
 class JobsHome extends StatefulWidget {
   JobsHome({Key key}) : super(key: key);
@@ -25,7 +26,7 @@ class _JobsHomeState extends State<JobsHome> {
   bool _loading = true;
   bool _init = false;
 
-  bool jobSeeker = true;
+  bool jobSeeker = false;
 
   JobsProvider jobsProvider;
   LocationProvider locationProvider;
@@ -56,6 +57,8 @@ class _JobsHomeState extends State<JobsHome> {
 
   Box<String> appdata;
 
+  double userLat = 0.0, userLong = 0.0;
+
   @override
   void didChangeDependencies() async {
     if (!_init) {
@@ -72,6 +75,9 @@ class _JobsHomeState extends State<JobsHome> {
       }
       if (appdata.get("userType") == "user") jobSeeker = true;
       if (appdata.get("userType") == "employer") jobSeeker = false;
+      userLat = double.parse(appdata.get("lat") ?? 0);
+      userLong = double.parse(appdata.get("long") ?? 0);
+      sortJobs();
 
       setState(() {
         _init = true;
@@ -81,8 +87,21 @@ class _JobsHomeState extends State<JobsHome> {
     super.didChangeDependencies();
   }
 
+  double getDist(checkLat, checkLong) {
+    final double distance =
+        Geolocator.distanceBetween(userLat, userLong, checkLat, checkLong);
+    print(distance);
+    return distance;
+  }
+
+  sortJobs() {
+    jobs.sort(
+        (a, b) => getDist(a.lat, a.long).compareTo(getDist(b.lat, b.long)));
+  }
+
   @override
   Widget build(BuildContext context) {
+    // print(jobSeeker);
     return SafeArea(
       child: Scaffold(
         body: _loading
@@ -165,7 +184,7 @@ class _JobsHomeState extends State<JobsHome> {
                 child: Icon(Icons.add)),
         bottomNavigationBar: Container(
           width: double.infinity,
-          height: 50,
+          height: 60,
           color: Themes.primaryColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -192,43 +211,40 @@ class _JobsHomeState extends State<JobsHome> {
   Padding jobsListBuilder(BuildContext context, int i, List<Job> jobsList) {
     return Padding(
       padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: ListTile(
-          onTap: () {
-            Navigator.pushNamed(context, ViewJobScreen.routeName,
-                arguments: {"jobid": jobsList[i].jobID, "job": jobsList[i]});
-          },
-          leading: Container(
-            child: jobsList[i].imgUrl != null
-                ? CachedNetworkImage(
-                    imageUrl: jobsList[i].imgUrl == ""
-                        ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
-                        : jobsList[i].imgUrl,
-                    fit: BoxFit.cover)
-                : CircleAvatar(),
-          ),
-          title: Text(
-            jobsList[i].title ?? "Title",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          subtitle: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(jobsList[i].hiringParty ?? "Company"),
-              Text(jobsList[i].desc ?? "Job Description"),
-              Text(timeago.format(DateTime.parse(jobsList[i].postedAt)),
-                  style: TextStyle(color: Colors.grey))
-            ],
-          ),
-          trailing: Text("\u20B9 ${jobsList[i].salary ?? "0"}",
-              style: TextStyle(
-                  color: Colors.blueGrey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold)),
-          contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          isThreeLine: true,
+      child: ListTile(
+        onTap: () {
+          Navigator.pushNamed(context, ViewJobScreen.routeName,
+              arguments: {"jobid": jobsList[i].jobID, "job": jobsList[i]});
+        },
+        leading: Container(
+          child: jobsList[i].imgUrl != null
+              ? CachedNetworkImage(
+                  imageUrl: jobsList[i].imgUrl == ""
+                      ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
+                      : jobsList[i].imgUrl,
+                  fit: BoxFit.cover)
+              : CircleAvatar(),
         ),
+        title: Text(
+          jobsList[i].title ?? "Title",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(jobsList[i].hiringParty ?? "Company"),
+            Text(jobsList[i].desc ?? "Job Description"),
+            Text(timeago.format(DateTime.parse(jobsList[i].postedAt)),
+                style: TextStyle(color: Colors.grey))
+          ],
+        ),
+        trailing: Text("\u20B9 ${jobsList[i].salary ?? "0"}",
+            style: TextStyle(
+                color: Colors.blueGrey,
+                fontSize: 16,
+                fontWeight: FontWeight.bold)),
+        contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        isThreeLine: true,
       ),
     );
   }

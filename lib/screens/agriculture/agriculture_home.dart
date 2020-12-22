@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_bg/bg/weather_bg.dart';
 import 'package:flutter_weather_bg/flutter_weather_bg.dart';
 import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/provider/location_provider.dart';
+import 'package:smart_village/screens/agriculture/agri_data.dart';
 import 'package:smart_village/theme/theme.dart';
 import 'package:weather/weather.dart';
 
@@ -37,6 +39,8 @@ class _AgricultureHomeState extends State<AgricultureHome> {
     super.didChangeDependencies();
   }
 
+  List farmingProcess = AgriData.farmingProcess;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +52,7 @@ class _AgricultureHomeState extends State<AgricultureHome> {
               child: CircularProgressIndicator(),
             )
           : CustomScrollView(
+              physics: BouncingScrollPhysics(),
               slivers: [
                 SliverList(
                     delegate: SliverChildListDelegate([
@@ -134,7 +139,60 @@ class _AgricultureHomeState extends State<AgricultureHome> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 420),
+                  SizedBox(height: 40),
+                  ExpandablePanel(
+                    header: Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Text("Steps In Farming Process",
+                          style: TextStyle(fontSize: 20)),
+                    ),
+                    // collapsed: Center(
+                    //   child: Text(
+                    //     "Key to Smart Farming Practices",
+                    //     softWrap: true,
+                    //     maxLines: 2,
+                    //     overflow: TextOverflow.ellipsis,
+                    //   ),
+                    // ),
+                    expanded: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          for (int i = 0; i < farmingProcess.length; i++)
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: CachedNetworkImage(
+                                      imageUrl: farmingProcess[i]["imgUrl"],
+                                      fit: BoxFit.cover),
+                                ),
+                                SizedBox(height: 10),
+                                Text(farmingProcess[i]["step"],
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20)),
+                                for (int j = 0;
+                                    j < farmingProcess[i]["point"].length;
+                                    j++)
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 5),
+                                    child: Text("${j + 1}. " +
+                                        farmingProcess[i]["point"][j]),
+                                  ),
+                                SizedBox(height: 50)
+                              ],
+                            ),
+                        ],
+                      ),
+                    ),
+                    tapHeaderToExpand: true,
+                    hasIcon: true,
+                  ),
+                  SizedBox(height: 100),
                 ]))
               ],
             ),
@@ -187,18 +245,22 @@ class _WeatherWidgetState extends State<WeatherWidget> {
     super.initState();
   }
 
+  TextStyle textStyle =
+      TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w400);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         WeatherBg(
-          weatherType: WeatherType.hazy,
+          weatherType: WeatherType.foggy,
           width: MediaQuery.of(context).size.width,
-          height: 200,
+          height: 220,
         ),
         Align(
           alignment: Alignment.topCenter,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 children: [
@@ -206,10 +268,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       weather.areaName,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
+                      style: textStyle,
                     ),
                   ),
                 ],
@@ -221,9 +280,10 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                   CachedNetworkImage(
                       imageUrl:
                           "http://openweathermap.org/img/wn/${weather.weatherIcon}.png",
-                      fit: BoxFit.cover),
+                      fit: BoxFit.cover,
+                      color: Colors.white),
                   Text(
-                    weather.temperature.celsius.toString() + " °C",
+                    weather.temperature.celsius.toStringAsFixed(1) + " °C",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 40,
@@ -231,11 +291,8 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                   ),
                   SizedBox(width: 5),
                   Text(
-                    weather.weatherMain,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400),
+                    "/ " + weather.weatherMain,
+                    style: textStyle,
                   ),
                 ],
               ),
@@ -243,23 +300,37 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                 "Feels like: " +
                     weather.tempFeelsLike.celsius.toStringAsFixed(1) +
                     " °C",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400),
+                style: textStyle,
               ),
               Text(
                 "Max: " +
-                    weather.tempMax.celsius.toString() +
+                    weather.tempMax.celsius.toStringAsFixed(1) +
                     " °C" +
                     " / " +
                     "Min: " +
-                    weather.tempMin.celsius.toString() +
+                    weather.tempMin.celsius.toStringAsFixed(1) +
                     " °C",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400),
+                style: textStyle,
+              ),
+              Text(
+                "Humidity: " + weather.humidity.toStringAsFixed(1) + "%",
+                style: textStyle,
+              ),
+              Text(
+                "Wind: " +
+                    weather.windSpeed.toStringAsFixed(1) +
+                    "m/s" +
+                    " (" +
+                    weather.windDegree.toString() +
+                    "°)",
+                style: textStyle,
+              ),
+              Text(
+                "Cloudiness: " +
+                    weather.cloudiness.toStringAsFixed(1) +
+                    " / Rain(3 hrs): " +
+                    weather.rainLast3Hours.toStringAsFixed(1),
+                style: textStyle,
               ),
             ],
           ),
