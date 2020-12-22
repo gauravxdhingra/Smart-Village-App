@@ -18,14 +18,16 @@ class AuthProvider with ChangeNotifier {
   String get firebaseToken => FirebaseAuth.instance.currentUser.uid;
 
   Future<void> verifyPhoneNumber(BuildContext context) async {
+    await handleHive();
+
     await FirebaseAuth.instance.verifyPhoneNumber(
       phoneNumber: "+91" + phoneNumber,
       timeout: const Duration(seconds: 60),
       verificationCompleted: (AuthCredential authCredential) async {
         authStatus = ("Your account is successfully verified");
         print(authStatus);
-        await handleHive();
-        appdata.put("phoneNumber", phoneNumber);
+
+        await appdata.put("phoneNumber", phoneNumber);
         print(appdata.get("phoneNumber"));
         notifyListeners();
       },
@@ -70,6 +72,7 @@ class AuthProvider with ChangeNotifier {
 
   userSignup(user.User user, context) async {
     await handleHive();
+    print(appdata.get("phoneNumber"));
     if (appdata.get("firebaseToken") != null)
       await databaseReference
           .collection('users')

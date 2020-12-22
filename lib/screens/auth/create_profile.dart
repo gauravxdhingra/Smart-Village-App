@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:smart_village/provider/auth_provider.dart';
 import 'package:smart_village/screens/jobs/jobs_home.dart';
 import 'package:smart_village/screens/pageview/pageview.dart';
+import 'package:smart_village/theme/theme.dart';
 import '../auth/user_signup.dart';
 import '../auth/employer_signup.dart';
 
@@ -44,7 +45,10 @@ class _CreateProfileState extends State<CreateProfile> {
                   Navigator.pushNamed(context, UserSignup.routeName);
                 },
                 child: Container(
-                  child: Text("Get Started"),
+                  height: 200,
+                  width: 300,
+                  decoration: BoxDecoration(color: Themes.primaryColor),
+                  child: Center(child: Text("Get Started")),
                 ),
               )),
           Align(
@@ -54,7 +58,7 @@ class _CreateProfileState extends State<CreateProfile> {
                   Navigator.pushNamed(context, EmployerSignup.routeName);
                 },
                 child: Container(
-                  child: Text("Register as an employer"),
+                  child: Text("Register as an employer\n"),
                 ),
               )),
         ],

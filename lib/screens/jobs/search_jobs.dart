@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_village/models/job.dart';
 import 'package:smart_village/provider/jobs_provider.dart';
 import 'package:smart_village/theme/theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -15,13 +16,15 @@ class SearchJobsPage extends StatefulWidget {
 
 class _SearchJobsPageState extends State<SearchJobsPage> {
   JobsProvider jobsProvider;
-  List jobs = [];
+  List<Job> jobs = [];
 
   @override
   void didChangeDependencies() {
     jobsProvider = Provider.of<JobsProvider>(context);
-    jobs = jobsProvider.jobsListGetter;
-    print(jobs);
+    Map args = ModalRoute.of(context).settings.arguments as Map;
+    jobs = args["jobs"];
+    // jobs = jobsProvider.jobsListGetter;
+    // print(jobs);
     super.didChangeDependencies();
   }
 
@@ -57,22 +60,22 @@ class _SearchJobsPageState extends State<SearchJobsPage> {
                       imageUrl:
                           "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png")),
               title: Text(
-                jobs[i]["title"],
+                jobs[i].title,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(jobs[i]["hiringParty"]),
-                  Text(jobs[i]["desc"]),
+                  Text(jobs[i].hiringParty),
+                  Text(jobs[i].desc),
                   Text(
-                    timeago.format(jobs[i]["postedAt"].toDate()),
+                    timeago.format(DateTime.parse(jobs[i].postedAt)),
                     style: TextStyle(color: Colors.grey),
                   )
                 ],
               ),
               trailing: Text(
-                "\u20B9 ${jobs[i]["salary"]}",
+                "\u20B9 ${jobs[i].salary}",
                 style: TextStyle(
                     color: Colors.blueGrey,
                     fontSize: 16,

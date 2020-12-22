@@ -126,7 +126,8 @@ class _JobsHomeState extends State<JobsHome> {
                           onPressed: _loading
                               ? null
                               : () => Navigator.pushNamed(
-                                  context, SearchJobsPage.routeName))
+                                  context, SearchJobsPage.routeName,
+                                  arguments: {"jobs": jobs}))
                     ],
                     stretch: true,
                   ),
@@ -166,7 +167,8 @@ class _JobsHomeState extends State<JobsHome> {
                   ),
                 ],
               ),
-        floatingActionButton: jobSeeker
+        // TODO REVERSE
+        floatingActionButton: !jobSeeker
             ? FloatingActionButton(
                 heroTag: null,
                 onPressed: () {
@@ -211,40 +213,44 @@ class _JobsHomeState extends State<JobsHome> {
   Padding jobsListBuilder(BuildContext context, int i, List<Job> jobsList) {
     return Padding(
       padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
-      child: ListTile(
-        onTap: () {
-          Navigator.pushNamed(context, ViewJobScreen.routeName,
-              arguments: {"jobid": jobsList[i].jobID, "job": jobsList[i]});
-        },
-        leading: Container(
-          child: jobsList[i].imgUrl != null
-              ? CachedNetworkImage(
-                  imageUrl: jobsList[i].imgUrl == ""
-                      ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
-                      : jobsList[i].imgUrl,
-                  fit: BoxFit.cover)
-              : CircleAvatar(),
+      child: Card(
+        child: ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, ViewJobScreen.routeName,
+                arguments: {"jobid": jobsList[i].jobID, "job": jobsList[i]});
+          },
+          leading: Container(
+            child: jobsList[i].imgUrl != null
+                ? CachedNetworkImage(
+                    imageUrl: jobsList[i].imgUrl == ""
+                        ? "https://cdn2.iconfinder.com/data/icons/people-icons-5/100/m-20-512.png"
+                        : jobsList[i].imgUrl,
+                    fit: BoxFit.cover,
+                    height: 90,
+                    width: 80)
+                : CircleAvatar(),
+          ),
+          title: Text(
+            jobsList[i].title ?? "Title",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(jobsList[i].hiringParty ?? "Company"),
+              Text(jobsList[i].desc ?? "Job Description"),
+              Text(timeago.format(DateTime.parse(jobsList[i].postedAt)),
+                  style: TextStyle(color: Colors.grey))
+            ],
+          ),
+          trailing: Text("\u20B9 ${jobsList[i].salary ?? "0"}",
+              style: TextStyle(
+                  color: Colors.blueGrey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold)),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          isThreeLine: true,
         ),
-        title: Text(
-          jobsList[i].title ?? "Title",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(jobsList[i].hiringParty ?? "Company"),
-            Text(jobsList[i].desc ?? "Job Description"),
-            Text(timeago.format(DateTime.parse(jobsList[i].postedAt)),
-                style: TextStyle(color: Colors.grey))
-          ],
-        ),
-        trailing: Text("\u20B9 ${jobsList[i].salary ?? "0"}",
-            style: TextStyle(
-                color: Colors.blueGrey,
-                fontSize: 16,
-                fontWeight: FontWeight.bold)),
-        contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        isThreeLine: true,
       ),
     );
   }
@@ -278,7 +284,9 @@ class _JobsHomeState extends State<JobsHome> {
           },
           child: Container(
             decoration: BoxDecoration(
-                color: Themes.primaryColor,
+                color: label == skillChipsData[selectedTag]
+                    ? Themes.primaryColor
+                    : Colors.grey,
                 borderRadius: BorderRadius.circular(20)),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(label, style: TextStyle(color: Colors.white)),

@@ -229,10 +229,13 @@ class _PostAJobState extends State<PostAJob> {
                           color: Themes.primaryColor),
                       height: 100,
                       width: double.infinity,
-                      child: Center(child: Text("Add an image")),
+                      child: Center(
+                          child: Text("+ Add an image",
+                              style: TextStyle(color: Colors.white))),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  // TODO TURN BACK TO 10
+                  SizedBox(height: 5),
                   _image == null
                       ? Text('No image selected.')
                       : Image.file(_image),
@@ -310,7 +313,9 @@ class _PostAJobState extends State<PostAJob> {
                                 color: Themes.primaryColor),
                             height: 50,
                             width: 130,
-                            child: Center(child: Text("Select Date")),
+                            child: Center(
+                                child: Text("Select Date",
+                                    style: TextStyle(color: Colors.white))),
                           ),
                         ),
                       if (jobTypeIndex == 1)
@@ -328,7 +333,9 @@ class _PostAJobState extends State<PostAJob> {
                                         range.endDate.toString());
                                     jobPosting.startDate = range.startDate;
                                     jobPosting.endDate = range.endDate;
-                                    Navigator.pop(context);
+                                    if (jobPosting.startDate != null &&
+                                        jobPosting.endDate != null)
+                                      Navigator.pop(context);
                                   },
                                   // TODO TESTING
                                   initialSelectedDates: [
@@ -349,7 +356,9 @@ class _PostAJobState extends State<PostAJob> {
                                 color: Themes.primaryColor),
                             height: 50,
                             width: 130,
-                            child: Center(child: Text("Select Duration")),
+                            child: Center(
+                                child: Text("Select Duration",
+                                    style: TextStyle(color: Colors.white))),
                           ),
                         ),
                     ],
@@ -374,7 +383,9 @@ class _PostAJobState extends State<PostAJob> {
                               color: Themes.primaryColor),
                           height: 50,
                           width: 130,
-                          child: Center(child: Text("Starting Time")),
+                          child: Center(
+                              child: Text("Starting Time",
+                                  style: TextStyle(color: Colors.white))),
                         ),
                       ),
                       InkWell(
@@ -392,7 +403,9 @@ class _PostAJobState extends State<PostAJob> {
                               color: Themes.primaryColor),
                           height: 50,
                           width: 130,
-                          child: Center(child: Text("Ending Time")),
+                          child: Center(
+                              child: Text("Ending Time",
+                                  style: TextStyle(color: Colors.white))),
                         ),
                       ),
                     ],
@@ -442,7 +455,9 @@ class _PostAJobState extends State<PostAJob> {
                             color: Themes.primaryColor),
                         height: 50,
                         width: double.infinity,
-                        child: Center(child: Text("Select Location on Map")),
+                        child: Center(
+                            child: Text("Select Location on Map",
+                                style: TextStyle(color: Colors.white))),
                       )),
                   SizedBox(height: 10),
                   if (jobAddress != "")

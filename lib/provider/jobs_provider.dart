@@ -68,9 +68,10 @@ class JobsProvider with ChangeNotifier {
       "title": job.title,
       "hiringParty": job.hiringParty,
       "desc": job.desc,
-      "imgUrl": job.imgUrl == ""
-          ? "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png"
-          : job.imgUrl,
+      "imgUrl": job.imgUrl,
+      // == ""
+      //     ? "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png"
+      //     : job.imgUrl,
       "startDate": job.startDate == null ? "" : job.startDate.toIso8601String(),
       "endDate": job.endDate == null ? "" : job.endDate.toIso8601String(),
       "postedAt": DateTime.now().toIso8601String(),

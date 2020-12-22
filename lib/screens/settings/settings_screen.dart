@@ -18,13 +18,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (!_init) {
       tiles = [
         {
-          "title": "Acount Settings",
-          "icon": Icon(Icons.account_circle_outlined),
+          "title": "Language",
+          "icon": Icon(Icons.translate_outlined),
           "onPress": () {},
         },
         {
-          "title": "Language",
-          "icon": Icon(Icons.translate_outlined),
+          "title": "Rate Us",
+          "icon": Icon(Icons.star),
+          "onPress": () {},
+        },
+        {
+          "title": "Report Issue",
+          "icon": Icon(Icons.message),
           "onPress": () {},
         },
         {
@@ -44,19 +49,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.settings),
-        title: Text("Settings"),
-      ),
-      body: ListView.builder(
-        itemBuilder: (context, i) => SettingsTile(
-          title: tiles[i]["title"],
-          icon: tiles[i]["icon"],
-          onPress: tiles[i]["onPress"],
+        appBar: AppBar(
+          leading: Icon(Icons.settings),
+          title: Text("Settings"),
         ),
-        itemCount: tiles.length,
-      ),
-    );
+        body: Column(
+          children: [
+            SizedBox(height: 20),
+            ListTile(
+              isThreeLine: true,
+              leading: CircleAvatar(radius: 40),
+              title: Text("Your Account"),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Gaurav Dhingra"),
+                  Text("+91 99999 99999"),
+                ],
+              ),
+              trailing: IconButton(icon: Icon(Icons.edit), onPressed: () {}),
+            ),
+            for (int i = 0; i < tiles.length; i++)
+              SettingsTile(
+                title: tiles[i]["title"],
+                icon: tiles[i]["icon"],
+                onPress: tiles[i]["onPress"],
+              ),
+          ],
+        ));
   }
 }
 

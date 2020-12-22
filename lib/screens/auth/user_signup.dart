@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smart_village/provider/auth_provider.dart';
+import 'package:smart_village/screens/pageview/pageview.dart';
 import '../../theme/theme.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart'; 
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:place_picker/place_picker.dart';
 import '../../apikey.dart';
 import 'package:chips_choice/chips_choice.dart';
@@ -18,9 +20,11 @@ class UserSignup extends StatefulWidget {
 
 class _UserSignupState extends State<UserSignup> {
   User user;
+  AuthProvider authProvider;
   @override
   void initState() {
     user = User();
+    authProvider = AuthProvider();
     super.initState();
   }
 
@@ -79,6 +83,7 @@ class _UserSignupState extends State<UserSignup> {
       hint: Text(gender),
       onChanged: (value) {
         gender = value;
+        user.gender = gender;
         setState(() {});
       },
     );
@@ -339,7 +344,10 @@ class _UserSignupState extends State<UserSignup> {
         floatingActionButton: FloatingActionButton.extended(
           icon: Icon(Icons.done),
           label: Text("Submit"),
-          onPressed: () {},
+          onPressed: () async {
+            authProvider.userSignup(user, context);
+            Navigator.pushNamed(context, PageViewHome.routeName);
+          },
         ),
       ),
     );

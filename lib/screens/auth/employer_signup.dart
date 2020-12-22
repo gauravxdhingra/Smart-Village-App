@@ -232,7 +232,9 @@ class _EmployerSignupState extends State<EmployerSignup> {
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.done),
         label: Text("Submit"),
-        onPressed: () {},
+        onPressed: () {
+          // TODO HANDLE SIGNUP
+        },
       ),
     );
   }
