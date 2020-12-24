@@ -80,6 +80,7 @@ class AuthProvider with ChangeNotifier {
           .doc(appdata.get("firebaseToken"))
           .set({
         "name": user.name,
+        "applied": [],
         "gender": user.gender,
         "dob": user.dob.toIso8601String(),
         "imgUrl": user.imgUrl ??
@@ -105,6 +106,7 @@ class AuthProvider with ChangeNotifier {
           .doc(appdata.get("firebaseToken"))
           .set({
         "companyName": employer.companyName,
+        "applied": [],
         "address": employer.address,
         "lat": employer.lat,
         "long": employer.long,

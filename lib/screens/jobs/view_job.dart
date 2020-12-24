@@ -45,6 +45,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
         await Hive.openBox("appdata");
         appdata = Hive.box<String>("appdata");
       }
+      print(appdata.toMap());
       userLat = double.parse(appdata.get("lat") ?? 0);
       userLong = double.parse(appdata.get("long") ?? 0);
 
@@ -217,7 +218,13 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () async {
+                      jobsProvider.applyForJob(
+                          candidateId: appdata.get("firebaseToken"),
+                          candidateName: "ABC Candidate",
+                          jobId: job.jobID,
+                          jobTitle: job.title);
+                    },
                     child: Container(
                       width: double.infinity,
                       height: 60,

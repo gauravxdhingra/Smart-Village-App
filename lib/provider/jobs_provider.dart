@@ -85,8 +85,51 @@ class JobsProvider with ChangeNotifier {
       "jobTags": job.jobTags,
       "specialNotes": job.specialNotes,
       "jobtypeIndex": job.jobTypeIndex,
+      "applied": []
     });
     return;
+  }
+
+  applyForJob({
+    String candidateId,
+    String jobId,
+    String candidateName,
+    String jobTitle,
+  }) async {
+    // TODO Add to job db
+    var temp = await databaseReference.collection('jobs').doc(jobId).get();
+    var tempData = temp.data();
+    List tempList = [];
+    if (tempData["applied"] != null) {
+      tempList = tempData["applied"];
+      tempList.add({
+        "candidateName": candidateName,
+        "candidateId": candidateId,
+      });
+    }
+
+    await databaseReference
+        .collection('jobs')
+        .doc(jobId)
+        .update({"applied": tempList});
+
+    // TODO USER APPLIED JOBS
+
+    var temp1 =
+        await databaseReference.collection('users').doc(candidateId).get();
+    var tempData1 = temp1.data();
+    List tempList1 = [];
+    if (tempData1["applied"] != null) {
+      tempList = tempData1["applied"];
+      tempList1.add(jobId);
+    }
+
+    await databaseReference
+        .collection('users')
+        .doc(candidateId)
+        .update({"applied": tempList1});
+
+    // TODO EMPLOYER NOTIFICATION
   }
 
   List<Job> get jobsListGetter {
