@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
@@ -51,6 +52,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Themes.primaryColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: GoogleFonts.openSansTextTheme(
+            Theme.of(context).textTheme,
+          ),
         ),
         debugShowCheckedModeBanner: false,
         routes: {

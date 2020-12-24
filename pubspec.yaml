@@ -39,6 +39,7 @@ dependencies:
   flutter_weather_bg: ^2.8.2
   geocoding: ^1.0.5
   geolocator: ^6.1.13
+  google_fonts: ^1.1.1
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
   image_picker: ^0.6.7+17
