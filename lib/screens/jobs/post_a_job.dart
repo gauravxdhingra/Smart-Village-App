@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/models/job.dart';
 import 'package:smart_village/provider/jobs_provider.dart';
@@ -31,14 +32,21 @@ class _PostAJobState extends State<PostAJob> {
   int jobTypeIndex = 0;
   TimeOfDay startTime = TimeOfDay(hour: 9, minute: 0);
   TimeOfDay endTime = TimeOfDay(hour: 18, minute: 0);
+  Box<String> appdata;
 
   @override
-  void didChangeDependencies() {
+  void didChangeDependencies() async {
     if (!init) {
       jobsProvider = Provider.of<JobsProvider>(context);
       jobPosting = Job();
       jobPosting.startTime = startTime;
       jobPosting.endTime = endTime;
+      if (Hive.isBoxOpen("appdata"))
+        appdata = Hive.box<String>("appdata");
+      else {
+        await Hive.openBox("appdata");
+        appdata = Hive.box<String>("appdata");
+      }
     }
     setState(() {
       init = true;
@@ -495,7 +503,8 @@ class _PostAJobState extends State<PostAJob> {
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {
             // TODO SUBMIT
-            await jobsProvider.submitJob(jobPosting, context);
+            await jobsProvider.submitJob(
+                jobPosting, appdata.get("firebaseToken"), context);
             Navigator.pop(context);
           },
           label: Text("Submit"),

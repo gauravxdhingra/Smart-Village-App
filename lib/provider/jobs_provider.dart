@@ -25,6 +25,7 @@ class JobsProvider with ChangeNotifier {
         title: ele["title"],
         desc: ele["desc"],
         location: ele["location"],
+        employerId: ele["employerId"],
         endDate: ele["endDate"] != null && ele["endDate"] != ""
             ? DateTime.parse(ele["endDate"])
             : null,
@@ -64,12 +65,13 @@ class JobsProvider with ChangeNotifier {
     return jobs;
   }
 
-  submitJob(Job job, context) async {
+  submitJob(Job job, employerId, context) async {
     await databaseReference.collection('jobs').add({
       "title": job.title,
       "hiringParty": job.hiringParty,
       "desc": job.desc,
       "imgUrl": job.imgUrl,
+      "employerId": employerId,
       // == ""
       //     ? "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png"
       //     : job.imgUrl,
@@ -90,12 +92,12 @@ class JobsProvider with ChangeNotifier {
     return;
   }
 
-  applyForJob({
-    String candidateId,
-    String jobId,
-    String candidateName,
-    String jobTitle,
-  }) async {
+  applyForJob(
+      {String candidateId,
+      String jobId,
+      String candidateName,
+      String jobTitle,
+      String employerId}) async {
     // TODO Add to job db
     var temp = await databaseReference.collection('jobs').doc(jobId).get();
     var tempData = temp.data();
@@ -121,7 +123,10 @@ class JobsProvider with ChangeNotifier {
     List tempList1 = [];
     if (tempData1["applied"] != null) {
       tempList = tempData1["applied"];
-      tempList1.add(jobId);
+      tempList1.add({
+        "jobId": jobId,
+        "jobTitle": jobTitle,
+      });
     }
 
     await databaseReference
@@ -130,6 +135,32 @@ class JobsProvider with ChangeNotifier {
         .update({"applied": tempList1});
 
     // TODO EMPLOYER NOTIFICATION
+
+    var temp2 =
+        await databaseReference.collection('users').doc(candidateId).get();
+    var tempData2 = temp2.data();
+    List tempList2 = [];
+    if (tempData2["applied"] != null) {
+      tempList = tempData1["applied"];
+      tempList2.add({
+        "jobId": jobId,
+        "jobTitle": jobTitle,
+        "candidateName": candidateName,
+        "candidateId": candidateId,
+      });
+    }
+
+    await databaseReference
+        .collection('users')
+        .doc(candidateId)
+        .update({"applied": tempList2});
+  }
+
+  Future<List> getAppliedJobsByUser(candidateId) async {
+    var temp2 =
+        await databaseReference.collection('users').doc(candidateId).get();
+    var tempData2 = temp2.data();
+    return tempData2["applied"];
   }
 
   List<Job> get jobsListGetter {

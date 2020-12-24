@@ -1,7 +1,7 @@
-apply jobs
-turn off apply for employer
+turn off apply for employer and also applied jobs
+signup buttons - 2 - size and UI
 job filter bottom modal sheet
-fix tabs on job homepage
-job view page
+fix tabs on job homepage 
+
 firebase storage
 language translation

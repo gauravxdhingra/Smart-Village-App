@@ -81,6 +81,7 @@ class AuthProvider with ChangeNotifier {
           .set({
         "name": user.name,
         "applied": [],
+        "postedJobs": [],
         "gender": user.gender,
         "dob": user.dob.toIso8601String(),
         "imgUrl": user.imgUrl ??
@@ -107,6 +108,7 @@ class AuthProvider with ChangeNotifier {
           .set({
         "companyName": employer.companyName,
         "applied": [],
+        "postedJobs": [],
         "address": employer.address,
         "lat": employer.lat,
         "long": employer.long,

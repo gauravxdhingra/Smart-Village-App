@@ -19,6 +19,7 @@ class Job {
   String specialNotes;
   String jobID;
   String postedAt;
+  String employerId;
 
   Job({
     this.title = "",
@@ -38,5 +39,6 @@ class Job {
     this.specialNotes,
     this.jobID = "",
     this.postedAt = "",
+    this.employerId = "",
   });
 }

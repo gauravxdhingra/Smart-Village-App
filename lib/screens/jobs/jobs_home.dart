@@ -26,7 +26,9 @@ class _JobsHomeState extends State<JobsHome> {
   bool _loading = true;
   bool _init = false;
 
+  bool secondView = false;
   bool jobSeeker = false;
+  bool loading2 = true;
 
   JobsProvider jobsProvider;
   LocationProvider locationProvider;
@@ -104,9 +106,31 @@ class _JobsHomeState extends State<JobsHome> {
   saveDist() {
     jobs.forEach((ele) {
       dist[ele.jobID] = getDist(ele.lat, ele.long) / 1000;
-      // print(ele.jobID);
     });
-    // print(dist);
+  }
+
+  List appliedJobIds = [];
+  List<Job> appliedJobs = [];
+
+  getAppliedJobs() async {
+    setState(() {
+      loading2 = true;
+    });
+    appliedJobIds = [];
+    appliedJobs = [];
+    List appJobsTemp =
+        await jobsProvider.getAppliedJobsByUser(appdata.get("firebaseToken"));
+
+    appJobsTemp.forEach((ele) {
+      appliedJobIds.add(ele["jobId"]);
+    });
+    print(appliedJobIds);
+    jobs.forEach((ele) {
+      if (appliedJobIds.contains(ele.jobID)) appliedJobs.add(ele);
+    });
+    setState(() {
+      loading2 = false;
+    });
   }
 
   @override
@@ -141,40 +165,62 @@ class _JobsHomeState extends State<JobsHome> {
                     ],
                     stretch: true,
                   ),
-                  SliverList(
-                    delegate: SliverChildListDelegate([
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            height: 60,
-                            width: double.infinity,
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                // TODO Add Chips Using Skills
-                                children: [
-                                  SizedBox(width: 10),
-                                  for (int i = 0;
-                                      i < skillChipsData.length;
-                                      i++)
-                                    skillChips(skillChipsData.keys.elementAt(i),
-                                        skillChipsData.values.elementAt(i)),
-                                ],
+                  if (!secondView)
+                    SliverList(
+                      delegate: SliverChildListDelegate([
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              height: 60,
+                              width: double.infinity,
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  // TODO Add Chips Using Skills
+                                  children: [
+                                    SizedBox(width: 10),
+                                    for (int i = 0;
+                                        i < skillChipsData.length;
+                                        i++)
+                                      skillChips(
+                                          skillChipsData.keys.elementAt(i),
+                                          skillChipsData.values.elementAt(i)),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          if (filterJobs.isEmpty)
-                            for (int i = 0; i < jobs.length; i++)
-                              jobsListBuilder(context, i, jobs)
-                          else
-                            for (int i = 0; i < filterJobs.length; i++)
-                              jobsListBuilder(context, i, filterJobs),
-                          Container(height: 400, width: 100)
-                        ],
-                      ),
-                    ]),
-                  ),
+                            if (filterJobs.isEmpty)
+                              for (int i = 0; i < jobs.length; i++)
+                                jobsListBuilder(context, i, jobs)
+                            else
+                              for (int i = 0; i < filterJobs.length; i++)
+                                jobsListBuilder(context, i, filterJobs),
+                            Container(height: 400, width: 100)
+                          ],
+                        ),
+                      ]),
+                    )
+                  else
+                    SliverList(
+                        delegate: SliverChildListDelegate([
+                      if (loading2)
+                        Container(
+                          height: 500,
+                          child: Center(child: CircularProgressIndicator()),
+                        )
+                      else
+                        Column(
+                          children: [
+                            Text("Applied Jobs"),
+                            if (appliedJobs.length == 0)
+                              Text("No Jobs Applied!")
+                            else
+                              for (int i = 0; i < appliedJobs.length; i++)
+                                jobsListBuilder(context, i, appliedJobs),
+                          ],
+                        ),
+                    ]))
                 ],
               ),
         // TODO REVERSE
@@ -202,16 +248,57 @@ class _JobsHomeState extends State<JobsHome> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(width: 5),
-              Icon(Icons.explore, color: Colors.white),
-              Text("Explore Jobs", style: TextStyle(color: Colors.white)),
-              SizedBox(width: 5),
+              GestureDetector(
+                onTap: () async {
+                  setState(() {
+                    secondView = false;
+                  });
+                  // await getAppliedJobs();
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.explore,
+                        color: secondView
+                            ? Colors.white.withOpacity(0.5)
+                            : Colors.white),
+                    SizedBox(width: 5),
+                    Text("Explore Jobs",
+                        style: TextStyle(
+                            color: secondView
+                                ? Colors.white.withOpacity(0.5)
+                                : Colors.white)),
+                  ],
+                ),
+              ),
               Container(width: 0.7, height: 30, color: Colors.white),
-              SizedBox(width: 5),
-              Icon(Icons.check_box, color: Colors.white.withOpacity(0.7)),
-              jobSeeker
-                  ? Text("Applied Jobs", style: TextStyle(color: Colors.white))
-                  : Text("Published Jobs",
-                      style: TextStyle(color: Colors.white)),
+              GestureDetector(
+                onTap: () async {
+                  setState(() {
+                    secondView = true;
+                  });
+                  await getAppliedJobs();
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.check_box,
+                        color: !secondView
+                            ? Colors.white.withOpacity(0.5)
+                            : Colors.white),
+                    SizedBox(width: 5),
+                    jobSeeker
+                        ? Text("Applied Jobs",
+                            style: TextStyle(
+                                color: !secondView
+                                    ? Colors.white.withOpacity(0.5)
+                                    : Colors.white))
+                        : Text("Published Jobs",
+                            style: TextStyle(
+                                color: !secondView
+                                    ? Colors.white.withOpacity(0.5)
+                                    : Colors.white)),
+                  ],
+                ),
+              ),
               SizedBox(width: 5),
             ],
           ),

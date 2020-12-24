@@ -219,11 +219,26 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                   alignment: Alignment.bottomCenter,
                   child: InkWell(
                     onTap: () async {
-                      jobsProvider.applyForJob(
+                      showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => AlertDialog(
+                                content: Row(
+                                  children: [
+                                    CircularProgressIndicator(),
+                                    SizedBox(width: 20),
+                                    Text("Loading")
+                                  ],
+                                ),
+                              ));
+                      await jobsProvider.applyForJob(
                           candidateId: appdata.get("firebaseToken"),
                           candidateName: "ABC Candidate",
                           jobId: job.jobID,
-                          jobTitle: job.title);
+                          jobTitle: job.title,
+                          employerId: job.employerId);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                     child: Container(
                       width: double.infinity,
