@@ -45,10 +45,19 @@ class _CreateProfileState extends State<CreateProfile> {
                   Navigator.pushNamed(context, UserSignup.routeName);
                 },
                 child: Container(
-                  height: 200,
-                  width: 300,
-                  decoration: BoxDecoration(color: Themes.primaryColor),
-                  child: Center(child: Text("Get Started")),
+                  height: 100,
+                  width: 200,
+                  decoration: BoxDecoration(
+                      color: Themes.primaryColor,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Center(
+                      child: Text(
+                    "Get Started",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  )),
                 ),
               )),
           Align(

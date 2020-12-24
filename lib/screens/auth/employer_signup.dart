@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_village/provider/auth_provider.dart';
 import '../../theme/theme.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -6,6 +8,7 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:place_picker/place_picker.dart';
 import '../../apikey.dart';
 import 'package:chips_choice/chips_choice.dart';
+import '../pageview/pageview.dart';
 
 import '../../models/employer.dart';
 
@@ -18,10 +21,24 @@ class EmployerSignup extends StatefulWidget {
 
 class _EmployerSignupState extends State<EmployerSignup> {
   Employer employer;
+  bool init = false;
+  AuthProvider authProvider;
   @override
   void initState() {
     employer = Employer();
+
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (!init) {
+      authProvider = Provider.of<AuthProvider>(context);
+      setState(() {
+        init = true;
+      });
+    }
+    super.didChangeDependencies();
   }
 
   File _image;
@@ -235,6 +252,8 @@ class _EmployerSignupState extends State<EmployerSignup> {
         label: Text("Submit"),
         onPressed: () {
           // TODO HANDLE SIGNUP
+          authProvider.employerSignup(employer, context);
+          Navigator.pushNamed(context, PageViewHome.routeName);
         },
       ),
     );
