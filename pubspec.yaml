@@ -27,6 +27,7 @@ dependencies:
   chips_choice: ^2.0.1
   cloud_firestore: ^0.14.2
   cupertino_icons: ^1.0.0
+  date_format: ^1.0.9
   day_night_time_picker: ^0.4.0
   expandable: ^4.1.4
   ff_navigation_bar: ^0.1.5

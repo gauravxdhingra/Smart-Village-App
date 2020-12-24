@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/models/job.dart';
 import 'package:smart_village/provider/jobs_provider.dart';
 import 'package:smart_village/theme/theme.dart';
+import 'package:smart_village/util/constants.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:maps_launcher/maps_launcher.dart';
 
@@ -70,35 +72,69 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                     background: Container(
                         height: 200,
                         child: Container(
-                          child: CachedNetworkImage(
-                              imageUrl: job.imgUrl, fit: BoxFit.cover),
+                          child: job.imgUrl != "" || job.imgUrl != null
+                              ? CachedNetworkImage(
+                                  imageUrl: job.imgUrl, fit: BoxFit.cover)
+                              // TODO Placeholder
+                              : Container(),
                         ))),
                 stretch: true,
               ),
               SliverList(
                 delegate: SliverChildListDelegate([
-                  Text(job.title),
-                  Text(job.hiringParty),
-                  Text(timeago.format(DateTime.parse(job.postedAt))),
-                  // TODO Job Tags
+                  Text(job.title, style: TextStyle(fontSize: 30)),
+                  Text(job.hiringParty, style: TextStyle(fontSize: 20)),
+                  Text(timeago.format(DateTime.parse(job.postedAt)),
+                      style: TextStyle(color: Colors.grey)),
+                  Row(
+                    children: [
+                      for (int i = 0; i < job.jobTags.length; i++)
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          decoration: BoxDecoration(
+                              color: Themes.primaryColor,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Text(Constants.tagsToChips[(job.jobTags[i])],
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                    ],
+                  ),
                   SizedBox(height: 10),
+                  Text("Rs. ${job.salary}"),
+                  SizedBox(height: 10),
+                  Text("About The Job"),
                   Text(job.desc),
+                  SizedBox(height: 10),
+                  Text("Type of Job"),
                   Text(job.jobTypeIndex == 0
                       ? "Single Day"
                       : job.jobTypeIndex == 1
-                          ? "Duration"
-                          : "Monthly"),
-                  if (job.jobTypeIndex == 0) Text("Date: ${job.startDate}"),
+                          ? "Short Duration"
+                          : "Regular"),
+                  SizedBox(height: 10),
+                  Text(job.jobTypeIndex == 0
+                      ? "Job Date"
+                      : job.jobTypeIndex == 1
+                          ? "Job Duration"
+                          : ""),
+                  if (job.jobTypeIndex == 0)
+                    Text(formatDate(job.startDate, [d, '-', M, '-', yyyy])),
                   if (job.jobTypeIndex == 1)
-                    Text("Date: ${job.startDate} to ${job.endDate}"),
-                  if (job.jobTypeIndex == 2) Text("Date: Monthly Job"),
+                    Text(formatDate(job.startDate, [d, '-', M, '-', yyyy]) +
+                        " to " +
+                        formatDate(job.endDate, [d, '-', M, '-', yyyy])),
+                  if (job.jobTypeIndex == 2) Text("Date: Regular Job"),
+                  SizedBox(height: 10),
+                  Text("Timings"),
                   Text(
-                      "Timings: ${job.startTime.format(context)} - ${job.endTime.format(context)}"),
-                  Text("Salary: ${job.salary}"),
-                  Text("Address:" + job.location),
-                  Text("Special Notes"),
+                      "${job.startTime.format(context)} - ${job.endTime.format(context)}"),
+                  SizedBox(height: 10),
+                  Text("Location"),
+                  Text(job.location),
+                  SizedBox(height: 10),
+                  Text("Note:"),
                   Text(job.specialNotes),
-                  Text(job.jobTags.toString()),
                 ]),
               ),
             ],
