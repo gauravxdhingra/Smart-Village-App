@@ -58,6 +58,7 @@ class _JobsHomeState extends State<JobsHome> {
   Box<String> appdata;
 
   double userLat = 0.0, userLong = 0.0;
+  Map dist = {};
 
   @override
   void didChangeDependencies() async {
@@ -73,11 +74,12 @@ class _JobsHomeState extends State<JobsHome> {
         await Hive.openBox("appdata");
         appdata = Hive.box<String>("appdata");
       }
-      if (appdata.get("userType") == "user") jobSeeker = true;
-      if (appdata.get("userType") == "employer") jobSeeker = false;
       userLat = double.parse(appdata.get("lat") ?? 0);
       userLong = double.parse(appdata.get("long") ?? 0);
+      if (appdata.get("userType") == "user") jobSeeker = true;
+      if (appdata.get("userType") == "employer") jobSeeker = false;
       sortJobs();
+      saveDist();
 
       setState(() {
         _init = true;
@@ -97,6 +99,14 @@ class _JobsHomeState extends State<JobsHome> {
   sortJobs() {
     jobs.sort(
         (a, b) => getDist(a.lat, a.long).compareTo(getDist(b.lat, b.long)));
+  }
+
+  saveDist() {
+    jobs.forEach((ele) {
+      dist[ele.jobID] = getDist(ele.lat, ele.long) / 1000;
+      // print(ele.jobID);
+    });
+    // print(dist);
   }
 
   @override
@@ -239,8 +249,9 @@ class _JobsHomeState extends State<JobsHome> {
             children: [
               Text(jobsList[i].hiringParty ?? "Company"),
               Text(jobsList[i].desc ?? "Job Description"),
+              Text(dist[jobsList[i].jobID].toStringAsFixed(1) + " Km Away"),
               Text(timeago.format(DateTime.parse(jobsList[i].postedAt)),
-                  style: TextStyle(color: Colors.grey))
+                  style: TextStyle(color: Colors.grey)),
             ],
           ),
           trailing: Text("\u20B9 ${jobsList[i].salary ?? "0"}",

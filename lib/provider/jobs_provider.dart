@@ -15,12 +15,13 @@ class JobsProvider with ChangeNotifier {
     int i = 0;
     temp.docs.forEach((element) {
       jobsList[i]["id"] = element.id;
+      // print(element.id);
       i++;
     });
     jobs = [];
     jobsList.forEach((ele) {
       jobs.add(Job(
-        jobID: ele["jobID"],
+        jobID: ele["id"],
         title: ele["title"],
         desc: ele["desc"],
         location: ele["location"],

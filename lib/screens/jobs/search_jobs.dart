@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_village/models/job.dart';
 import 'package:smart_village/provider/jobs_provider.dart';
+import 'package:smart_village/screens/jobs/view_job.dart';
 import 'package:smart_village/theme/theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -36,7 +37,6 @@ class _SearchJobsPageState extends State<SearchJobsPage> {
       if (ele.title.toLowerCase().contains(query.toLowerCase()) ||
           ele.desc.toLowerCase().contains(query.toLowerCase()) ||
           ele.hiringParty.toLowerCase().contains(query.toLowerCase()) ||
-          ele.jobTags.contains(query) ||
           ele.location.toLowerCase().contains(query.toLowerCase()) ||
           ele.specialNotes.toLowerCase().contains(query.toLowerCase()))
         searchResults.add(ele);
@@ -77,6 +77,13 @@ class _SearchJobsPageState extends State<SearchJobsPage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: ListTile(
+                    onTap: () {
+                      Navigator.pushNamed(context, ViewJobScreen.routeName,
+                          arguments: {
+                            "jobid": searchResults[i].jobID,
+                            "job": searchResults[i]
+                          });
+                    },
                     leading: Container(
                       child: searchResults[i].imgUrl == null ||
                               searchResults[i].imgUrl == ""
