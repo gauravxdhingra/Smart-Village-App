@@ -211,8 +211,14 @@ class _JobsHomeState extends State<JobsHome> {
                         )
                       else
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Applied Jobs"),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 15, vertical: 15),
+                              child: Text("Applied Jobs",
+                                  style: TextStyle(fontSize: 20)),
+                            ),
                             if (appliedJobs.length == 0)
                               Text("No Jobs Applied!")
                             else

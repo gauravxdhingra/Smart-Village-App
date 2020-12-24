@@ -26,7 +26,7 @@ class _PageViewHomeState extends State<PageViewHome> {
           physics: NeverScrollableScrollPhysics(),
           children: [
             Homepage(),
-            DashboardScreen(),
+            // DashboardScreen(),
             NotificationScreen(),
             SettingsScreen(),
           ],
@@ -51,10 +51,10 @@ class _PageViewHomeState extends State<PageViewHome> {
               iconData: Icons.home_filled,
               label: 'Home',
             ),
-            FFNavigationBarItem(
-              iconData: Icons.dashboard,
-              label: 'Dashboard',
-            ),
+            // FFNavigationBarItem(
+            //   iconData: Icons.dashboard,
+            //   label: 'Dashboard',
+            // ),
             FFNavigationBarItem(
               iconData: Icons.notifications,
               label: 'Notifications',

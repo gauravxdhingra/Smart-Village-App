@@ -99,49 +99,51 @@ class JobsProvider with ChangeNotifier {
       String jobTitle,
       String employerId}) async {
     // TODO Add to job db
-    var temp = await databaseReference.collection('jobs').doc(jobId).get();
-    var tempData = temp.data();
-    List tempList = [];
-    if (tempData["applied"] != null) {
-      tempList = tempData["applied"];
-      tempList.add({
-        "candidateName": candidateName,
-        "candidateId": candidateId,
-      });
-    }
+    // var temp = await databaseReference.collection('jobs').doc(jobId).get();
+    // var tempData = temp.data();
+    // List tempList = [];
+    // if (tempData["applied"] != null) {
+    //   tempList = tempData["applied"];
+    //   tempList.add({
+    //     "candidateName": candidateName,
+    //     "candidateId": candidateId,
+    //   });
+    // }
 
-    await databaseReference
-        .collection('jobs')
-        .doc(jobId)
-        .update({"applied": tempList});
+    // await databaseReference
+    //     .collection('jobs')
+    //     .doc(jobId)
+    //     .update({"applied": tempList});
 
-    // TODO USER APPLIED JOBS
+    // // TODO USER APPLIED JOBS
 
-    var temp1 =
-        await databaseReference.collection('users').doc(candidateId).get();
-    var tempData1 = temp1.data();
-    List tempList1 = [];
-    if (tempData1["applied"] != null) {
-      tempList = tempData1["applied"];
-      tempList1.add({
-        "jobId": jobId,
-        "jobTitle": jobTitle,
-      });
-    }
+    // var temp1 =
+    //     await databaseReference.collection('users').doc(candidateId).get();
+    // var tempData1 = temp1.data();
+    // List tempList1 = [];
+    // if (tempData1["applied"] != null) {
+    //   tempList = tempData1["applied"];
+    //   tempList1.add({
+    //     "jobId": jobId,
+    //     "jobTitle": jobTitle,
+    //   });
+    // }
 
-    await databaseReference
-        .collection('users')
-        .doc(candidateId)
-        .update({"applied": tempList1});
+    // await databaseReference
+    //     .collection('users')
+    //     .doc(candidateId)
+    //     .update({"applied": tempList1});
 
     // TODO EMPLOYER NOTIFICATION
 
     var temp2 =
-        await databaseReference.collection('users').doc(candidateId).get();
+        await databaseReference.collection('users').doc(employerId).get();
     var tempData2 = temp2.data();
+    print(tempData2);
     List tempList2 = [];
-    if (tempData2["applied"] != null) {
-      tempList = tempData1["applied"];
+    print(tempData2["notifications"]);
+    if (tempData2["notifications"] != null) {
+      tempList2 = tempData2["notifications"];
       tempList2.add({
         "jobId": jobId,
         "jobTitle": jobTitle,
@@ -152,7 +154,7 @@ class JobsProvider with ChangeNotifier {
 
     await databaseReference
         .collection('users')
-        .doc(candidateId)
+        .doc(employerId)
         .update({"applied": tempList2});
   }
 

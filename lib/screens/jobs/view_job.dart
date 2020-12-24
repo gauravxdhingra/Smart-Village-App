@@ -231,12 +231,14 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                   ],
                                 ),
                               ));
+                      print(job.employerId);
                       await jobsProvider.applyForJob(
                           candidateId: appdata.get("firebaseToken"),
                           candidateName: "ABC Candidate",
                           jobId: job.jobID,
                           jobTitle: job.title,
                           employerId: job.employerId);
+
                       Navigator.pop(context);
                       Navigator.pop(context);
                     },
@@ -244,10 +246,11 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                       width: double.infinity,
                       height: 60,
                       decoration: BoxDecoration(
-                          color: Themes.primaryColor,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15))),
+                        color: Themes.primaryColor,
+                        // borderRadius: BorderRadius.only(
+                        //     topLeft: Radius.circular(15),
+                        //     topRight: Radius.circular(15))
+                      ),
                       child: Center(
                         child: Text("Apply",
                             style: TextStyle(
