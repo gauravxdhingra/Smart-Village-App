@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CoursesHome extends StatefulWidget {
   CoursesHome({Key key}) : super(key: key);
@@ -10,6 +11,18 @@ class CoursesHome extends StatefulWidget {
 }
 
 class _CoursesHomeState extends State<CoursesHome> {
+  bool init = true;
+
+  launchURL() async {
+    const url =
+        'https://www.youtube.com/watch?v=cvxiSk5dH3U&list=PLBcBU_WV3EWfyEXxqBUpb--YZ_-3B7yyq';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,30 +36,35 @@ class _CoursesHomeState extends State<CoursesHome> {
           children: [
             Row(
               children: [
-                Container(
-                  height: MediaQuery.of(context).size.width * 0.67,
-                  width: MediaQuery.of(context).size.width * 0.67,
-                  child: Stack(
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.width * 0.67,
-                        width: MediaQuery.of(context).size.width * 0.67,
-                        padding: EdgeInsets.all(2),
-                        child: CachedNetworkImage(
-                            imageUrl:
-                                "https://www.ladiestailorinpune.com/wp-content/uploads/2018/04/class-2.jpg",
-                            fit: BoxFit.cover),
-                      ),
-                      Align(
-                          alignment: Alignment.lerp(
-                              Alignment.bottomCenter, Alignment.center, 0.1),
-                          child: Text("BASIC STITCHING AND KNITTING COURSE",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold))),
-                    ],
+                GestureDetector(
+                  onTap: () async {
+                    await launchURL();
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.width * 0.67,
+                    width: MediaQuery.of(context).size.width * 0.67,
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.width * 0.67,
+                          width: MediaQuery.of(context).size.width * 0.67,
+                          padding: EdgeInsets.all(2),
+                          child: CachedNetworkImage(
+                              imageUrl:
+                                  "https://www.ladiestailorinpune.com/wp-content/uploads/2018/04/class-2.jpg",
+                              fit: BoxFit.cover),
+                        ),
+                        Align(
+                            alignment: Alignment.lerp(
+                                Alignment.bottomCenter, Alignment.center, 0.1),
+                            child: Text("BASIC STITCHING AND KNITTING COURSE",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold))),
+                      ],
+                    ),
                   ),
                 ),
                 Column(

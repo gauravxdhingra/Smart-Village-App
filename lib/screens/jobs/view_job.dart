@@ -230,8 +230,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                     Text("Loading")
                                   ],
                                 ),
-                              ));
-                      print(job.employerId);
+                              )); 
                       await jobsProvider.applyForJob(
                           candidateId: appdata.get("firebaseToken"),
                           candidateName: "ABC Candidate",
