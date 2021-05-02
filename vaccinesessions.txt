@@ -1,0 +1,1941 @@
+{
+    "centers": [{
+        "center_id": 565718,
+        "name": "Civil Hospital Hisar 1",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "08:00:00",
+        "to": "18:30:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "b49ed564-4c58-4e16-bbeb-d312f5357d56",
+            "date": "01-05-2021",
+            "available_capacity": 59,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-06:30PM"]
+        }, {
+            "session_id": "85670e21-485a-41e0-a3c2-cf5029657ffd",
+            "date": "02-05-2021",
+            "available_capacity": 151,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-06:30PM"]
+        }, {
+            "session_id": "04392511-d95b-499a-9b64-f5d607bdcc70",
+            "date": "03-05-2021",
+            "available_capacity": 173,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-06:30PM"]
+        }, {
+            "session_id": "a28ce6b8-d142-4bb5-bb89-3ae7531c5660",
+            "date": "04-05-2021",
+            "available_capacity": 176,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-06:30PM"]
+        }, {
+            "session_id": "6e48f351-e029-43a3-8ed3-292707a85bbd",
+            "date": "05-05-2021",
+            "available_capacity": 184,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-06:30PM"]
+        }, {
+            "session_id": "3efba887-f117-4ec9-9373-86738a618b05",
+            "date": "06-05-2021",
+            "available_capacity": 193,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-06:30PM"]
+        }, {
+            "session_id": "dab05998-4a26-4788-93bb-2b5a64849c2a",
+            "date": "07-05-2021",
+            "available_capacity": 188,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-06:30PM"]
+        }]
+    }, {
+        "center_id": 688823,
+        "name": "TB Hospital Hisar",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "c82cfcac-fbd1-4705-ad61-621755181bcb",
+            "date": "01-05-2021",
+            "available_capacity": 45,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }]
+    }, {
+        "center_id": 575486,
+        "name": "Kaimri PHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 74,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "bde202f0-b359-4528-8c43-11b72fd3db7e",
+            "date": "01-05-2021",
+            "available_capacity": 44,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "4cc344e8-bf77-41c3-b930-e2f6de26c2e5",
+            "date": "02-05-2021",
+            "available_capacity": 44,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "45e0fc32-c211-4fc9-9a4c-3fac410fc82a",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "38786166-ca71-43f4-8b73-31e5c7d410aa",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "aa4a77ad-9cef-430e-b41e-1f3c708b9f11",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "331f293c-0d46-4988-b656-ff7267aea103",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "f218cc27-4817-4405-84a0-002b18af54c7",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 220066,
+        "name": "Sec 1- 4 UHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "7985a9be-1075-48d1-8bd2-0bf6bb78a09f",
+            "date": "01-05-2021",
+            "available_capacity": 154,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "4c5e5601-2edd-4cc4-8be7-fe39e3ef8f54",
+            "date": "02-05-2021",
+            "available_capacity": 164,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "8ee43ac2-61dc-456b-ad4a-e0f2d47ba82a",
+            "date": "03-05-2021",
+            "available_capacity": 175,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "ba667b3f-ec30-43ee-ba6c-bdc0c98ca7fb",
+            "date": "04-05-2021",
+            "available_capacity": 193,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "f688b9b9-7eb0-4892-abab-36670a0e40c2",
+            "date": "05-05-2021",
+            "available_capacity": 193,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "c3955dc8-302c-4551-8210-c0e887b3fcce",
+            "date": "06-05-2021",
+            "available_capacity": 195,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "78e6fdee-0793-4e50-8da0-bb31b9d2b39c",
+            "date": "07-05-2021",
+            "available_capacity": 199,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 574964,
+        "name": "Talwandi PHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 28,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "aa38e923-2e22-45a7-a673-7aa4f69a4865",
+            "date": "01-05-2021",
+            "available_capacity": 45,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "d4748edd-22cf-4f0c-a048-7f4d2e873fe4",
+            "date": "02-05-2021",
+            "available_capacity": 47,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "c798f070-0fd0-4450-9e0b-a94d41bde6bc",
+            "date": "03-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "6afa05ab-7dab-4363-b53f-cbd2031d7972",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "83423d9d-91f3-4820-a1d2-ff1728ab8018",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "32380c0e-b829-4e84-8e88-637a15ec6e62",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "42d29d61-991c-479b-80e3-10c3bf658a5a",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 548177,
+        "name": "CMC Hospital",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "18:00:00",
+        "fee_type": "Paid",
+        "sessions": [{
+            "session_id": "2b2c2d7e-eeb1-4387-bc58-927f3baac9f3",
+            "date": "01-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-06:00PM"]
+        }, {
+            "session_id": "a17f06db-6dcc-493a-bda2-883611c64ab4",
+            "date": "07-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-06:00PM"]
+        }],
+        "vaccine_fees": [{
+            "vaccine": "COVISHIELD",
+            "fee": "0"
+        }]
+    }, {
+        "center_id": 571122,
+        "name": "Gawar PHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "0f248908-2f9b-45ce-a4a5-48b4dffc53bc",
+            "date": "01-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "a8a9da27-28f9-4613-af1b-51b45520cc13",
+            "date": "03-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "cdbeada1-d639-44f0-92ee-ecda75b67504",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "540aea07-8a00-4317-87f3-b9150fe9d1aa",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "e374dc06-dc84-4eea-9f06-635fd35ed623",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "733fe2f1-db57-458a-83d8-735e182c2173",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 548196,
+        "name": "Sarvodaya Hospital",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Paid",
+        "sessions": [{
+            "session_id": "a6262bd4-89ea-4e51-97f6-c93159032fa6",
+            "date": "01-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }],
+        "vaccine_fees": [{
+            "vaccine": "COVISHIELD",
+            "fee": "0"
+        }]
+    }, {
+        "center_id": 564383,
+        "name": "Aryanagar CHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "ebf0dc25-26bc-4ca8-b8af-5dfa7b01e3b1",
+            "date": "01-05-2021",
+            "available_capacity": 194,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "51f23672-4bad-4da7-8a13-67cde91d9025",
+            "date": "02-05-2021",
+            "available_capacity": 192,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "fe6b8b68-2046-4320-af24-ed89de5fe764",
+            "date": "03-05-2021",
+            "available_capacity": 198,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "02cb8ef1-0bbf-40dd-9888-17f7adb2c108",
+            "date": "04-05-2021",
+            "available_capacity": 198,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "1d7534dd-a350-460c-97f6-bda17d55dfbc",
+            "date": "05-05-2021",
+            "available_capacity": 198,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "1d0bd85b-b32c-42ff-9e64-79ed3907168b",
+            "date": "06-05-2021",
+            "available_capacity": 199,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "e6c5bff2-ba1b-4c6e-8fbf-558825ab7421",
+            "date": "07-05-2021",
+            "available_capacity": 200,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 220123,
+        "name": "UPHC Rishi Nagar",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "2f43c2f3-f590-46d0-a8db-3c962e8a3454",
+            "date": "01-05-2021",
+            "available_capacity": 43,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "7a600f43-2ad5-4fee-b9a3-bf150e89b904",
+            "date": "03-05-2021",
+            "available_capacity": 41,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "2b2f91f7-8596-4104-99ad-f3282a29a370",
+            "date": "04-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "25ee59da-c1e6-479a-84a4-3dd7bcd53ae7",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "65a2729b-ec0c-4821-8c21-fe582b7466af",
+            "date": "06-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "e8eebe98-e68e-4fdf-abb7-13e3818040c0",
+            "date": "07-05-2021",
+            "available_capacity": 46,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 665445,
+        "name": "ESI Disp Model Town Hisar",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "08:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "4fca4c38-545b-4f89-bdd9-0e79b4b7c179",
+            "date": "01-05-2021",
+            "available_capacity": 18,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["08:00AM-10:00AM", "10:00AM-12:00PM", "12:00PM-02:00PM", "02:00PM-03:00PM"]
+        }, {
+            "session_id": "b16a5463-9cad-478b-bfd3-7cec1f41e69c",
+            "date": "04-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }]
+    }, {
+        "center_id": 571228,
+        "name": "Dhobi PHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Siswal",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "5dc60b89-4483-4214-b9de-317d727ddaba",
+            "date": "01-05-2021",
+            "available_capacity": 47,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "e651e12d-440d-4e99-8698-0c1d687b3264",
+            "date": "02-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "e4bf6800-99c9-496f-a97c-1f26caa88adc",
+            "date": "03-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "66fcc77f-b07f-4e75-afd0-447e16020c34",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "1ea81b77-d2c3-4a9a-8365-568e7731c4d3",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "9c04bedb-dbca-441e-8371-439d932096b3",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "a26bb657-030e-4133-bff1-4a4f66dc13b6",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 220131,
+        "name": "Dispensary Patel Nagar",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "a1d0936b-8af7-4211-9b3a-408ee8f16dc5",
+            "date": "01-05-2021",
+            "available_capacity": 68,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "bfde65f3-75d0-461d-9e4a-7e3b81d23c1c",
+            "date": "03-05-2021",
+            "available_capacity": 74,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "568cb3d8-d877-48db-88cb-603f611e5721",
+            "date": "04-05-2021",
+            "available_capacity": 91,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "7ecf7efa-8bd2-4e85-ada4-43364e623e93",
+            "date": "05-05-2021",
+            "available_capacity": 99,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "a485de92-0f6e-4481-945b-94a50fd9e693",
+            "date": "06-05-2021",
+            "available_capacity": 100,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "bc73d63f-4477-48a0-a553-87809c3af785",
+            "date": "07-05-2021",
+            "available_capacity": 99,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 626631,
+        "name": "Rishi Nagar UPHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "18:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "55357701-ca08-4556-abde-3442f80c02df",
+            "date": "01-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-06:00PM"]
+        }]
+    }, {
+        "center_id": 571121,
+        "name": "Balsmand PHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "22ff3cce-5848-41a3-a54f-f7926352f9d0",
+            "date": "01-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "53354506-93a5-4054-b0b8-055729aceef3",
+            "date": "02-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "5889a3f8-dd48-46f7-ba97-8afeded6b968",
+            "date": "03-05-2021",
+            "available_capacity": 47,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "151643ab-7075-40a9-9321-3eaeff4c34db",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "92db33a3-c52a-4be9-a666-e694970dc8bf",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "428506f3-de3f-4cbf-889a-e200b5a596df",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "648030db-74b5-4aae-8d2f-2601a7b957ab",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 571123,
+        "name": "Choudharywas PHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "e128aac9-2522-47d4-a4e0-592cd2acae55",
+            "date": "01-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "cfdf3e7a-8961-4e83-ba3f-1d8fd85fe2e9",
+            "date": "02-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "fd9fc779-b860-406e-a61c-5e4f830d0ab8",
+            "date": "03-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "ac875646-35fb-4f0c-a938-28d5e7e56b09",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "7db92b39-9d9b-461e-9cef-c8a361aea703",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "17aa6594-4af1-4a70-9300-f1ce5f0e83ab",
+            "date": "06-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "c72f3dad-2078-4670-acf8-2d1f572aa57f",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 564406,
+        "name": "Mangali CHC",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "95b0afe9-6ef7-42c9-b0b2-c107fc46baf0",
+            "date": "01-05-2021",
+            "available_capacity": 196,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "7e68615a-9755-48e9-9805-844e910ee113",
+            "date": "02-05-2021",
+            "available_capacity": 199,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "50be1d32-e225-4350-a907-ac5ce8c1590f",
+            "date": "03-05-2021",
+            "available_capacity": 199,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "50238b0d-b55f-4a61-9d7a-c366c35591db",
+            "date": "04-05-2021",
+            "available_capacity": 200,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "2ece8640-c0e9-4c2b-bb3f-364e701b0ed0",
+            "date": "05-05-2021",
+            "available_capacity": 200,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "28dac660-58d0-4cdc-b9d4-e39d0d04ea4f",
+            "date": "06-05-2021",
+            "available_capacity": 200,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "fd02890b-d4c9-4e13-9eee-6224faf25d96",
+            "date": "07-05-2021",
+            "available_capacity": 200,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 627189,
+        "name": "UHC AZAD NAGAR",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "14:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "e8e8552f-9185-4911-99c3-7b7913e1368a",
+            "date": "02-05-2021",
+            "available_capacity": 178,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-10:00AM", "10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-02:00PM"]
+        }, {
+            "session_id": "7343e8b0-b96d-4af2-8c2d-324c3051a2b4",
+            "date": "03-05-2021",
+            "available_capacity": 193,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "1aaccfc9-08ba-4a27-9a33-c8ae8b74fe32",
+            "date": "04-05-2021",
+            "available_capacity": 198,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "a2ee8e26-32fe-4024-9e90-6e1c6f078c5c",
+            "date": "05-05-2021",
+            "available_capacity": 196,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "5d6483e7-9dd4-4e96-bbdc-9a01ad1210d9",
+            "date": "06-05-2021",
+            "available_capacity": 200,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "cdd65aef-3ffb-42c8-abcd-4f7482fc42fd",
+            "date": "07-05-2021",
+            "available_capacity": 199,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 691162,
+        "name": "Sanatan Dharam Hanuman Mandir",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "0336230b-4973-4ea8-8395-84156af05f56",
+            "date": "03-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "cf123007-07d6-44d1-9828-4de239aa6101",
+            "date": "04-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "680725a6-251b-499e-9e55-a8bbddc6423d",
+            "date": "06-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 665595,
+        "name": "Divyang Punarvas Kendra",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "7e72f684-2baf-486d-990b-907786f8ff69",
+            "date": "03-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "ed3e6304-044f-487a-b417-eb401e16a8dc",
+            "date": "04-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 219969,
+        "name": "Subcenter Bhiwani Rohilla",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "37707bdb-5d40-4193-ab8a-773f62f13cec",
+            "date": "03-05-2021",
+            "available_capacity": 46,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "7636d0a6-3a2a-4021-8bd9-8f78681eeef6",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "fd6fff97-83f1-451c-abd5-0eeda7823d6e",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "fb1fa42f-cde9-42c2-9775-9f5c299c2e69",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 219944,
+        "name": "Subcenter Bandaheri",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "d43d2e3d-4945-4e3c-98c0-97ac43c4929a",
+            "date": "03-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "7e28e88d-01f9-471a-8afd-b2ed42d435da",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "34a0a429-f62e-4f32-aa7a-f829f049f5f1",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "8cb19889-fcb5-478f-a56c-dec1655360bf",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 677202,
+        "name": "Bharaman Dharmshala",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "1423b7c7-fe80-46d3-a9ce-24106412a2c9",
+            "date": "03-05-2021",
+            "available_capacity": 57,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-04:00PM"]
+        }, {
+            "session_id": "6d304e6b-3414-4ac0-896c-3e5a6bf18f02",
+            "date": "04-05-2021",
+            "available_capacity": 94,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-04:00PM"]
+        }, {
+            "session_id": "25a9adda-0151-462f-b60e-4c0e5f5826b3",
+            "date": "06-05-2021",
+            "available_capacity": 99,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 219931,
+        "name": "Subcenter Hindwan",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "db6db77a-7da5-4103-aafc-aebe3b63ebd5",
+            "date": "03-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "32ef228e-4aba-4d8e-8793-21889d563251",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "5aecee24-39a7-4ce1-a441-371651b62b6d",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "ab27f294-f572-4cba-8fb6-95c60a7c9b8d",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 690807,
+        "name": "Ravidass Mandir Azad Nagar",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "10:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "3a9b09eb-c09a-452f-8471-e5b4babe79fa",
+            "date": "03-05-2021",
+            "available_capacity": 96,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-04:00PM"]
+        }, {
+            "session_id": "689ad34f-f012-438c-9149-4b3929424508",
+            "date": "04-05-2021",
+            "available_capacity": 98,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-04:00PM"]
+        }, {
+            "session_id": "ae292610-a760-42d7-997c-322822a06be3",
+            "date": "06-05-2021",
+            "available_capacity": 100,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 220152,
+        "name": "Govt Primary School Raipur",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "192631c6-50c5-434b-b49e-299f9dd5c5c7",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 220144,
+        "name": "Lifeline Institute Of Science",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "11:30:00",
+        "to": "17:30:00",
+        "fee_type": "Paid",
+        "sessions": [{
+            "session_id": "379fce91-6156-44a5-91ff-622cd9bb43a5",
+            "date": "03-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": ["11:30AM-12:30PM", "12:30PM-01:30PM", "01:30PM-02:30PM", "02:30PM-05:30PM"]
+        }],
+        "vaccine_fees": [{
+            "vaccine": "COVISHIELD",
+            "fee": "0"
+        }]
+    }, {
+        "center_id": 219955,
+        "name": "Subcenter Siswala",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "bd090fec-a9b6-4f31-b1c4-9a05cf4db534",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "4a07f2d6-298f-4959-8acb-28b3a2d9bb01",
+            "date": "04-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "d2ddc18e-8381-4da9-a13d-a6377d10e5cf",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "b8a80ec7-42ff-4bfa-a175-f2b87a471aa2",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 220171,
+        "name": "Subcenter Badya",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "bb2ce545-a4ce-4538-89fe-620d884f0003",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 219927,
+        "name": "Subcenter Muklan",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "7068b599-f6a8-43cc-851b-da5cfa735d22",
+            "date": "03-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "ead6caea-ad53-4f37-a501-ce337f3ddd3a",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "0bf59715-5009-4adf-b021-5925a4d2edad",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "8b9e49d3-4c40-4319-8d8b-28a561933092",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 219930,
+        "name": "Subcenter Pattan",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "e233037b-6665-4dab-aabd-443fa96f08a9",
+            "date": "03-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "3a6c4a93-cd02-4186-80b4-0c91cf77b0fb",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "f2d14f9b-426a-4180-b407-f1788b8e1577",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "1092fd95-a5aa-4409-9444-6f3844302d49",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 219941,
+        "name": "Subcenter Burak",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "fa96a5ce-332e-4679-801d-e9b0f8826849",
+            "date": "03-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "8b41a19f-bc36-4090-8407-8f1171e18af0",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "a910e3a1-5d1c-402e-bcaf-04c99e5b829a",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "75195d9a-0093-4038-a6df-ce98b06ab01e",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 630712,
+        "name": "CCSHAU Hospital",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "1f51668d-7f9c-4956-8c7f-803650f85da0",
+            "date": "03-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-04:00PM"]
+        }, {
+            "session_id": "30a0537d-91ff-4314-be1c-b6b96cce2fe8",
+            "date": "04-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 669848,
+        "name": "Subcenter Dahima",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "93682644-833d-4f3b-915d-5455d88c2602",
+            "date": "03-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 219956,
+        "name": "Subcenter Kirtan",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "d0c17b23-beb3-4dee-ad71-af174b11e730",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "885e3ace-a773-49a1-8032-4e4c9736d3dd",
+            "date": "04-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "a513397e-c0c8-4ceb-9146-9eece5a80321",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "acd2daee-02c3-4318-97c3-1a45c919744f",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 219946,
+        "name": "Subcenter Choudhariwali",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "8ffeeb70-a5ff-4d98-827e-83e7e8d8a1ab",
+            "date": "03-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "9a7ee217-5266-423b-ba5e-79edd9253c15",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "9d0d842e-7ada-4315-9052-2a9c3d975054",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-02:00PM"]
+        }, {
+            "session_id": "00da0237-d739-4c54-84b0-664ab4224317",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 663411,
+        "name": "Guru Jambheshwar University",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "3c9a0697-2ee9-4b07-9427-d12d60a65d31",
+            "date": "03-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "a632824b-984b-47b8-b87d-3f39f51f1086",
+            "date": "04-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 18,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 627178,
+        "name": "UPHC Mahavir Colony",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "f23100f3-ff5e-4195-aeba-51b3ac6e16bd",
+            "date": "03-05-2021",
+            "available_capacity": 47,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "b8d7f7b1-51db-4211-9c05-bf6631655a8e",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "2bc1f657-fb67-4ed0-b676-55a35f91b6be",
+            "date": "05-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "77edb1d4-f724-41a2-86ab-d6e359ec488a",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "ff593359-568b-4ddb-bc75-440cd1091fc5",
+            "date": "07-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 219947,
+        "name": "Subcenter Sundawas",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "74a738e8-23d5-4152-bfca-b706838af673",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "242d3304-3af5-4758-8c90-04ddd10e0e34",
+            "date": "04-05-2021",
+            "available_capacity": 48,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "b6dfbf24-26cf-42e5-88e0-3acedfa77f05",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "86e6c0c2-e478-4aae-8690-e86795dd6fa9",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 219926,
+        "name": "Subcenter Gorchi",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "54e5f763-0d21-4eb1-b859-287b51a0811d",
+            "date": "03-05-2021",
+            "available_capacity": 45,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "5b8e726a-0c16-439b-a572-a0be7ce0796f",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "84d31a0a-63d9-4a78-a98a-ce63882b0239",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "c6c4dc1c-18a1-4a84-bdfa-1d5a9f739a3b",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 220188,
+        "name": "Subcenter Juglan",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "7f7c65cf-745b-4c99-94f0-4a96434a491c",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 219960,
+        "name": "Subcenter Sarsana",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Arya Nagar",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "10:00:00",
+        "to": "15:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "57206900-f68b-404d-9df8-1fc7b43ca149",
+            "date": "03-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "9a2d8347-b0ee-41a4-997e-6afe13dad45a",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "586bf87c-3761-46e5-95cb-d4dde2e51a57",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }, {
+            "session_id": "e8100016-09f4-4fa4-bd7b-6b670144f332",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["10:00AM-11:00AM", "11:00AM-12:00PM", "12:00PM-01:00PM", "01:00PM-03:00PM"]
+        }]
+    }, {
+        "center_id": 670267,
+        "name": "Aggarsain Charitable Hospital",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "6f062adb-8845-4c63-bc1a-5eb6255f767c",
+            "date": "04-05-2021",
+            "available_capacity": 77,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 643292,
+        "name": "Subcentre Dabra",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "06b68af9-e47c-40a5-8ff0-b0198778ae9e",
+            "date": "04-05-2021",
+            "available_capacity": 49,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 220170,
+        "name": "Subcenter Harita",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "e7844cf0-c51e-442b-9b4f-f2978515e919",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 670832,
+        "name": "Subcenter Damana",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "663a1dc5-21f3-4a71-8b60-eff923cbb0a0",
+            "date": "04-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 672893,
+        "name": "Village Charnaund",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "6d8343fd-015b-4241-834b-7a144332633e",
+            "date": "05-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 673886,
+        "name": "Subcenter Mujadpur",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "929bac1c-c7d4-469c-b966-255b5caff563",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 673350,
+        "name": "Subcenter SInghran",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "c7909cc6-2cf1-42bc-a371-50e6eae43bfc",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 673902,
+        "name": "Subcenter Dhingtana",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Barwala",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "46dc53b8-dd47-486a-9559-88df65eed141",
+            "date": "06-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }, {
+            "session_id": "e844a189-9b34-4a25-9593-080da6eb7060",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 220185,
+        "name": "Subcenter Dhandhoor",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Mangali",
+        "pincode": 125001,
+        "lat": 0,
+        "long": 0,
+        "from": "09:00:00",
+        "to": "16:00:00",
+        "fee_type": "Free",
+        "sessions": [{
+            "session_id": "22998f86-a3fe-4543-86de-622604b66ad3",
+            "date": "07-05-2021",
+            "available_capacity": 50,
+            "min_age_limit": 45,
+            "vaccine": "",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-04:00PM"]
+        }]
+    }, {
+        "center_id": 571272,
+        "name": "Goswami Hospital",
+        "state_name": "Haryana",
+        "district_name": "Hisar",
+        "block_name": "Hisar 1",
+        "pincode": 125001,
+        "lat": 29,
+        "long": 75,
+        "from": "09:00:00",
+        "to": "18:00:00",
+        "fee_type": "Paid",
+        "sessions": [{
+            "session_id": "fbc8ace2-30e3-4add-9366-aeb3b1826055",
+            "date": "07-05-2021",
+            "available_capacity": 0,
+            "min_age_limit": 45,
+            "vaccine": "COVISHIELD",
+            "slots": ["09:00AM-11:00AM", "11:00AM-01:00PM", "01:00PM-03:00PM", "03:00PM-06:00PM"]
+        }],
+        "vaccine_fees": [{
+            "vaccine": "COVISHIELD",
+            "fee": "0"
+        }]
+    }]
+}

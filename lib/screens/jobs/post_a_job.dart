@@ -301,19 +301,19 @@ class _PostAJobState extends State<PostAJob> {
                           onTap: () {
                             showDialog(
                                 context: context,
-                                child: SfDateRangePicker(
-                                  onSelectionChanged: (args) {
-                                    if (args.value is DateTime) {
-                                      DateTime date = args.value;
-                                      jobPosting.startDate = date;
-                                      print(date.toString());
-                                    }
-                                  },
-                                  backgroundColor: Colors.white,
-                                  selectionMode:
-                                      DateRangePickerSelectionMode.single,
-                                  enablePastDates: false,
-                                ));
+                                builder: (context) => SfDateRangePicker(
+                                      onSelectionChanged: (args) {
+                                        if (args.value is DateTime) {
+                                          DateTime date = args.value;
+                                          jobPosting.startDate = date;
+                                          print(date.toString());
+                                        }
+                                      },
+                                      backgroundColor: Colors.white,
+                                      selectionMode:
+                                          DateRangePickerSelectionMode.single,
+                                      enablePastDates: false,
+                                    ));
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -331,32 +331,32 @@ class _PostAJobState extends State<PostAJob> {
                           onTap: () {
                             showDialog(
                                 context: context,
-                                child: SfDateRangePicker(
-                                  headerStyle: DateRangePickerHeaderStyle(
-                                      textAlign: TextAlign.center),
-                                  onSelectionChanged: (args) {
-                                    PickerDateRange range = args.value;
-                                    print(range.startDate.toString() +
-                                        "   " +
-                                        range.endDate.toString());
-                                    jobPosting.startDate = range.startDate;
-                                    jobPosting.endDate = range.endDate;
-                                    if (jobPosting.startDate != null &&
-                                        jobPosting.endDate != null)
-                                      Navigator.pop(context);
-                                  },
-                                  // TODO TESTING
-                                  initialSelectedDates: [
-                                    jobPosting.startDate,
-                                    jobPosting.endDate
-                                  ],
-                                  showNavigationArrow: true,
-                                  allowViewNavigation: true,
-                                  backgroundColor: Colors.white,
-                                  selectionMode:
-                                      DateRangePickerSelectionMode.range,
-                                  enablePastDates: false,
-                                ));
+                                builder: (context) => SfDateRangePicker(
+                                      headerStyle: DateRangePickerHeaderStyle(
+                                          textAlign: TextAlign.center),
+                                      onSelectionChanged: (args) {
+                                        PickerDateRange range = args.value;
+                                        print(range.startDate.toString() +
+                                            "   " +
+                                            range.endDate.toString());
+                                        jobPosting.startDate = range.startDate;
+                                        jobPosting.endDate = range.endDate;
+                                        if (jobPosting.startDate != null &&
+                                            jobPosting.endDate != null)
+                                          Navigator.pop(context);
+                                      },
+                                      // TODO TESTING
+                                      initialSelectedDates: [
+                                        jobPosting.startDate,
+                                        jobPosting.endDate
+                                      ],
+                                      showNavigationArrow: true,
+                                      allowViewNavigation: true,
+                                      backgroundColor: Colors.white,
+                                      selectionMode:
+                                          DateRangePickerSelectionMode.range,
+                                      enablePastDates: false,
+                                    ));
                           },
                           child: Container(
                             decoration: BoxDecoration(

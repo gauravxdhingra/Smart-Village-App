@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:smart_village/provider/location_provider.dart';
 import 'package:smart_village/screens/agriculture/agriculture_home.dart';
 import 'package:smart_village/screens/courses/courses_home.dart';
+import 'package:smart_village/screens/healthcare/healthcare.dart';
 import 'package:smart_village/screens/jobs/jobs_home.dart';
 import 'package:smart_village/theme/theme.dart';
 
@@ -52,6 +53,13 @@ class _HomepageState extends State<Homepage> {
               "https://i.pinimg.com/originals/ec/ff/cc/ecffccbdfb3381f5edf994d45913f737.png",
           "onPress": () {
             Navigator.pushNamed(context, CoursesHome.routeName);
+          },
+        },
+        {
+          "title": "COVID-19",
+          "imgUrl": "https://image.flaticon.com/icons/png/512/2853/2853896.png",
+          "onPress": () {
+            Navigator.pushNamed(context, HealthCareScreen.routeName);
           },
         },
       ];
@@ -126,7 +134,7 @@ class _HomepageState extends State<Homepage> {
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             sliver: SliverGrid(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3, childAspectRatio: 2 / 2.6),
+                    crossAxisCount: 3, childAspectRatio: 2 / 2.7),
                 delegate:
                     SliverChildBuilderDelegate((BuildContext context, int i) {
                   return HomeTabs(
@@ -134,7 +142,7 @@ class _HomepageState extends State<Homepage> {
                     imgUrl: homeTabItems[i]["imgUrl"],
                     onPress: homeTabItems[i]["onPress"],
                   );
-                }, childCount: 3)),
+                }, childCount: homeTabItems.length)),
           ),
           SliverToBoxAdapter(
             child: SizedBox(height: 400, width: 100),

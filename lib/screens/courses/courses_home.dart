@@ -29,8 +29,7 @@ class _CoursesHomeState extends State<CoursesHome> {
       appBar: AppBar(
         title: Text("Skill Development Courses"),
       ),
-      body: Container(
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
           children: [
@@ -229,8 +228,8 @@ class _CoursesHomeState extends State<CoursesHome> {
                         imageUrl:
                             "https://www.telegraph.co.uk/content/dam/wellbeing/2016/07/08/102678778_dictionary-WELLBEING_trans_NvBQzQNjv4BqRbhc5V7kUtrB_UgV-vALC47PRSMmxwY_k-xuJYNqXBk.jpg",
                         fit: BoxFit.cover,
-                        height: 150,
-                        width: 150),
+                        height: 100,
+                        width: 100),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 15, vertical: 10),
@@ -239,7 +238,8 @@ class _CoursesHomeState extends State<CoursesHome> {
                         children: [
                           Text("Basic English Course",
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                              overflow: TextOverflow.ellipsis),
                           SizedBox(height: 10),
                           Text("Duration: 4 Weeks"),
                         ],
@@ -259,8 +259,8 @@ class _CoursesHomeState extends State<CoursesHome> {
                         imageUrl:
                             "https://base.imgix.net/files/base/ebm/industryweek/image/2020/03/Assembly_Line.5e7a1db962670.png?auto=format&fit=max&w=1200",
                         fit: BoxFit.cover,
-                        height: 150,
-                        width: 150),
+                        height: 100,
+                        width: 100),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 15, vertical: 10),
@@ -269,7 +269,8 @@ class _CoursesHomeState extends State<CoursesHome> {
                         children: [
                           Text("Factory Operations\nCourse",
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                              overflow: TextOverflow.ellipsis),
                           SizedBox(height: 10),
                           Text("Duration: 9 Weeks"),
                         ],
@@ -282,7 +283,7 @@ class _CoursesHomeState extends State<CoursesHome> {
             ),
           ],
         ),
-      )),
+      ),
     );
   }
 }

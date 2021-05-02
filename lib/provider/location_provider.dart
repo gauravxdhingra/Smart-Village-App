@@ -9,6 +9,8 @@ class LocationProvider with ChangeNotifier {
   LocationData _locationData;
   Box<String> appdata;
 
+  String pincode = "";
+
   Future<LocationData> getLocation() async {
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
@@ -48,6 +50,9 @@ class LocationProvider with ChangeNotifier {
     final placemarks = await geocoding.placemarkFromCoordinates(
         _locationDataa.latitude, _locationDataa.longitude);
     geocoding.Placemark placemark = placemarks.first;
+    print(placemark.postalCode);
+
+    pincode = placemark.postalCode;
     print(placemark.subLocality + ", " + placemark.subAdministrativeArea);
     return placemark.subLocality + ", " + placemark.subAdministrativeArea;
   }
@@ -62,5 +67,13 @@ class LocationProvider with ChangeNotifier {
 
   get locationDataGetter {
     return _locationData;
+  }
+
+  String get getPincode {
+    return pincode;
+  }
+
+  set setPincode(String newPin) {
+    pincode = newPin;
   }
 }
